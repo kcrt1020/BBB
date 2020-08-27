@@ -89,23 +89,25 @@
                 <div class="col-md-6 col-sm-6 col-xs-6 text-left">
                     <div class="about_us_content_title">
                         <h2>about us</h2>
-                        <h5>no about us more</h5>
+                        <h5>브랜드 소개</h5>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-6 text-right">
-                    <div class="about_us_content_title">
-                        <ul class="breadcrumbs">
-                            <li><a href="#">home</a></li>
-                            <li><a href="#">about</a></li>
-                        </ul>
-                    </div>
+                  
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 col-sm-6">
                     <div class="about_us_content">
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-                        <a href="#">read more <span  class="fa fa-long-arrow-right"></span></a>
+                      
+                        <h3>빵빵브레드</h3><br>
+                        <p>빵빵브레드는 엄선한 재료로 매일매일 매장에서 직접 굽는 신선한 빵을 제공합니다.
+                       	  오븐에서 방금 꺼낸 빵이 가장 맛있다는 것을 알기에, 빵빵브레드는 지금도 더욱 따뜻하고 촉촉한 갓 구운 빵을 제공하기 위해 끊임없이 노력합니다.</p>
+                       	  <br><br>
+                       	  <h3>편안한 공간</h3><br>
+                       	 <p>빵빵브레드는 바쁜 일상 속에서 휴식과 여유를 느낄 수 있는 공간입니다.
+							누구나 부담없이 편하게 즐길 수 있는 가격과
+							안락한 인테리어로 지친 일상 속에서 남녀노소 모두 휴식을 취할 수 있는 베이커리입니다.</p>
                     </div>
                 </div>
                 <div class="col-md-offset-1 col-sm-6 col-md-5">
@@ -185,49 +187,13 @@
 
     <!--start footer area-->
 
-    <section class="footer-area" id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-sm-3 col-xs-12 col-lg-4">
-                    <div class="single-footer">
-                        <h2>about us</h2>
-                        <p>ABOUT US Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-3 col-xs-12 col-lg-2">
-                    <div class="single-footer">
-                        <h2>More links</h2>
-                        <ul class="list">
-                            <li><a href="#">about us.</a></li>
-                            <li><a href="#">We Accepts.</a></li>
-                            <li><a href="#">news latters</a></li>
-                            <li><a href="#">Pricing & plans</a></li>
-                            <li><a href="#">Calculate</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-3 col-xs-12 col-lg-3">
-                    <div class="single-footer">
-                        <h2>We Accepts</h2>
-                        <a href="#"><img src="../img/cards_credt_1.png" alt="#"></a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-3 col-xs-12 col-lg-3">
-                    <div class="single-footer clearfix">
-                        <h2>news latters</h2>
-                        <input type="text" class="form-control">
-                        <input type="submit" class="submt-button" value="submit">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+   
 
     <div class="copyright-area">
         <div class="container">
             <div class="col-xs-12 col-sm-6 col-md-6 text-left">
                 <div class="footer-text">
-                    <p>Copyright 2016, All Rights Reserved</p>
+                    <p>Copyright 2020, All Rights Reserved</p>
                 </div>
             </div>
             <div class="col-xs-12  col-sm-6 col-md-6 text-right">

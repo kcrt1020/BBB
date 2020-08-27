@@ -1,14 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@page import="com.bbb.member.MemberDAO"%>
+<%@page import="com.bbb.member.MemberBean"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<html lang="en">
+<html lang="ko">
 	<%
-	// ȭ�� ��ܿ� ��ġ�ϴ� �޴� ó�� (��� �������� ����)
 	
-	// �α��� üũ (���� id ���� �ִ��� ������ üũ)
+	request.setCharacterEncoding("utf-8");
+	// 로그인 체크 (세션 id 값이 있는지 없는지 체크)
 	String id= (String)session.getAttribute("id");
-	String name= (String)session.getAttribute("name");
+	// memberDAO 객체 생성
+			MemberDAO mdao = new MemberDAO();
+
+		// id에 해당하는 회원정보 가져오기 getMember(id)
+		MemberBean mb=mdao.getMember(id);
 	%>
 	
 	
@@ -16,7 +22,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>�����극��</title>
+    <title>빵빵브레드</title>
     <!--  bootstrap css -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <!--  font Awesome Css  -->
@@ -80,8 +86,8 @@
                             <li><a href="../member/loginForm.jsp">login</a></li>
                             <li><a href="../member/joinForm.jsp">sign up</a></li>
                             <%} else{%>
-							 <li><a href="../member/memberInfo.jsp"><%=name %>�� </a> </li>
-							 <li><a href="../member/logout.jsp">�α׾ƿ�</a></li>
+							 <li><a href="../member/memberInfo.jsp"><%=mb.getName() %>님 </a> </li>
+							 <li><a href="../member/logout.jsp">로그아웃</a></li>
 								<%
 									} %>
 							
@@ -101,16 +107,15 @@
                     <div class="row">
                         <div class="col-xs-12 text-center">
                             <div class="welcome_text">
-                                <h1>�����극��� </h1>
-                                <h1>���ִ� �ҽ�!</h1>
-                                <div class="welcome_p">
-                                    <p>bbang...... ...... </p>
-                                    <p>bbang................</p>
+                                <h1>ENJOY THE </h1>
+                   	  			<h1>BBANGBBANG BREAD </h1>
+                                <div class="welcome_p">                       
+                                    <p>빵빵브레드에서 갓구운 빵을 만나보세요!</p>
                                 </div>
                                 <div class="welcome_form">
                                     <form action="#">
-                                        <input class="form-control" type="text" placeholder="Enter your product code">
-                                        <input class="submit" type="submit" value="Track your product">
+                                        <input class="form-control" type="text" placeholder="제품을 입력하세요.">
+                                        <input class="submit" type="submit" value="검색">
                                     </form>
                                 </div>
                             </div>
@@ -124,47 +129,7 @@
     <!--end of header area-->
 
     <!--   start about top area-->
-    <section class="about_top">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="about_single_item">
-                        <div class="item_icon">
-                            <img src="../img/item_icon.png" alt="item">
-                        </div>
-                        <div class="about_single_item_content">
-                            <h4>Fastest Delivery</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="about_single_item">
-                        <div class="item_icon">
-                            <img src="../img/item_icon.png" alt="item">
-                        </div>
-                        <div class="about_single_item_content">
-                            <h4>Fastest Delivery</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="about_single_item">
-                        <div class="item_icon">
-                            <img src="../img/item_icon.png" alt="item">
-                        </div>
-                        <div class="about_single_item_content">
-                            <h4>Fastest Delivery</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--    end of about top area-->
-
+  
 
     <!--    start about us area-->
     <section class="about_us_area" id="about">
@@ -172,9 +137,17 @@
             <div class="row">
                 <div class="col-md-6 col-sm-6">
                     <div class="about_us_content">
-                        <h2>about us</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-                        <a href="#">read more <span  class="fa fa-long-arrow-right"></span></a>
+                        <h1>ABOUT US</h1><br><br>
+                        
+                        <h3>빵빵브레드</h3><br>
+                        <p>빵빵브레드는 엄선한 재료로 매일매일 매장에서 직접 굽는 신선한 빵을 제공합니다.
+                       	  오븐에서 방금 꺼낸 빵이 가장 맛있다는 것을 알기에, 빵빵브레드는 지금도 더욱 따뜻하고 촉촉한 갓 구운 빵을 제공하기 위해 끊임없이 노력합니다.</p>
+                       	  <br><br>
+                       	  <h3>편안한 공간</h3><br>
+                       	 <p>빵빵브레드는 바쁜 일상 속에서 휴식과 여유를 느낄 수 있는 공간입니다.
+							누구나 부담없이 편하게 즐길 수 있는 가격과
+							안락한 인테리어로 지친 일상 속에서 남녀노소 모두 휴식을 취할 수 있는 베이커리입니다.</p>
+                      
                     </div>
                 </div>
                 <div class="col-md-offset-1 col-sm-6 col-md-5">
@@ -333,7 +306,7 @@
                             <img src="../img/client.jpg" alt="client">
                         </div>
                         <div class="client-details">
-                            <p>��Lorem ipsum dolor sit amet, consectetuer adipis cing elit, sed diam nonummy nibh euismod tinci dunt ut laoreet dolore magna aliquam.��</p>
+                            <p>“Lorem ipsum dolor sit amet, consectetuer adipis cing elit, sed diam nonummy nibh euismod tinci dunt ut laoreet dolore magna aliquam.”</p>
                             <h4>John Doe<span>Student</span></h4>
                         </div>
                     </div>
@@ -344,7 +317,7 @@
                             <img src="../img/client-2.jpg" alt="client">
                         </div>
                         <div class="client-details">
-                            <p>��Lorem ipsum dolor sit amet, consectetuer adipis cing elit, sed diam nonummy nibh euismod tinci dunt ut laoreet dolore magna aliquam.��</p>
+                            <p>“Lorem ipsum dolor sit amet, consectetuer adipis cing elit, sed diam nonummy nibh euismod tinci dunt ut laoreet dolore magna aliquam.”</p>
                             <h4>John Doe<span>Student</span></h4>
                         </div>
                     </div>
@@ -354,236 +327,12 @@
     </section>
     <!--    end of client area-->
 
-    <!--start Pricing Area -->
-    <section class="pricing-area" id="pricing">
-        <div class="table">
-            <div class="cell">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-5 col-sm-12">
-                            <div class="pricing-desc section-padding-two">
-                                <div class="pricing-desc-title">
-                                    <div class="title">
-                                        <h2>Pricing & plans</h2>
-                                        <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat,</p>
-                                    </div>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-            <div class="column-out">
-                <div class="pricing-slider">
-                    <ul class="carousel">
-                        <li class="items main-pos slides" id="1">
-                            <!-- Single Pricing Table -->
-                            <div class="single-pricing-table">
-                                <div class="pricing-head">
-                                    <h6 class="price-title">Premium</h6>
-                                </div>
-                                <div class="price">
-                                    <p>$450</p>
-                                    <span class="pricing-status">per month</span>
-                                </div>
-                                <div class="pricing-body">
-                                    <ul>
-                                        <li>Full website maintance</li>
-                                        <li>Free domain & hosting</li>
-                                        <li>High quality product</li>
-                                        <li>24/7 Customer service</li>
-                                    </ul>
-                                    <a href="#" class="price-btn">Get started today</a>
-                                </div>
-                            </div>
-                            <!-- /.End Of Single Pricing Table -->
-                        </li>
-                        <li class="items right-pos slides" id="2">
-                            <!-- Single Pricing Table -->
-                            <div class="single-pricing-table">
-                                <div class="pricing-head">
-                                    <h6 class="price-title">Basic</h6>
-                                </div>
-                                <div class="price">
-                                    <p>$150</p>
-                                    <span class="pricing-status">per month</span>
-                                </div>
-                                <div class="pricing-body">
-                                    <ul>
-                                        <li>Full website maintance</li>
-                                        <li>Free domain & hosting</li>
-                                        <li>High quality product</li>
-                                        <li>24/7 Customer service</li>
-                                    </ul>
-                                    <a href="#" class="price-btn">Get started today</a>
-                                </div>
-                            </div>
-                            <!-- /.End Of Single Pricing Table -->
-                        </li>
-                        <li class="items back-pos slides" id="3">
-                            <!-- Single Pricing Table -->
-                            <div class="single-pricing-table">
-                                <div class="pricing-head">
-                                    <h6 class="price-title">Basic</h6>
-                                </div>
-                                <div class="price">
-                                    <p>$150</p>
-                                    <span class="pricing-status">per month</span>
-                                </div>
-                                <div class="pricing-body">
-                                    <ul>
-                                        <li>Full website maintance</li>
-                                        <li>Free domain & hosting</li>
-                                        <li>High quality product</li>
-                                        <li>24/7 Customer service</li>
-                                    </ul>
-                                    <a href="#" class="price-btn">Get started today</a>
-                                </div>
-                            </div>
-                            <!-- /.End Of Single Pricing Table -->
-                        </li>
-                        <li class="items back-pos slides" id="4">
-                            <!-- Single Pricing Table -->
-                            <div class="single-pricing-table">
-                                <div class="pricing-head">
-                                    <h6 class="price-title">Premium</h6>
-                                </div>
-                                <div class="price">
-                                    <p>$450</p>
-                                    <span class="pricing-status">per month</span>
-                                </div>
-                                <div class="pricing-body">
-                                    <ul>
-                                        <li>Full website maintance</li>
-                                        <li>Free domain & hosting</li>
-                                        <li>High quality product</li>
-                                        <li>24/7 Customer service</li>
-                                    </ul>
-                                    <a href="#" class="price-btn">Get started today</a>
-                                </div>
-                            </div>
-                            <!-- /.End Of Single Pricing Table -->
-                        </li>
-                        <li class="items back-pos slides" id="5">
-                            <!-- Single Pricing Table -->
-                            <div class="single-pricing-table">
-                                <div class="pricing-head">
-                                    <h6 class="price-title">Basic</h6>
-                                </div>
-                                <div class="price">
-                                    <p>$150</p>
-                                    <span class="pricing-status">per month</span>
-                                </div>
-                                <div class="pricing-body">
-                                    <ul>
-                                        <li>Full website maintance</li>
-                                        <li>Free domain & hosting</li>
-                                        <li>High quality product</li>
-                                        <li>24/7 Customer service</li>
-                                    </ul>
-                                    <a href="#" class="price-btn">Get started today</a>
-                                </div>
-                            </div>
-                            <!-- /.End Of Single Pricing Table -->
-                        </li>
-                        <li class="items back-pos slides" id="6">
-                            <!-- Single Pricing Table -->
-                            <div class="single-pricing-table">
-                                <div class="pricing-head">
-                                    <h6 class="price-title">Basic</h6>
-                                </div>
-                                <div class="price">
-                                    <p>$150</p>
-                                    <span class="pricing-status">per month</span>
-                                </div>
-                                <div class="pricing-body">
-                                    <ul>
-                                        <li>Full website maintance</li>
-                                        <li>Free domain & hosting</li>
-                                        <li>High quality product</li>
-                                        <li>24/7 Customer service</li>
-                                    </ul>
-                                    <a href="#" class="price-btn">Get started today</a>
-                                </div>
-                            </div>
-                            <!-- /.End Of Single Pricing Table -->
-                        </li>
-                        <li class="items left-pos slides" id="7">
-                            <!-- Single Pricing Table -->
-                            <div class="single-pricing-table">
-                                <div class="pricing-head">
-                                    <h6 class="price-title">Basic</h6>
-                                </div>
-                                <div class="price">
-                                    <p>$150</p>
-                                    <span class="pricing-status">per month</span>
-                                </div>
-                                <div class="pricing-body">
-                                    <ul>
-                                        <li>Full website maintance</li>
-                                        <li>Free domain & hosting</li>
-                                        <li>High quality product</li>
-                                        <li>24/7 Customer service</li>
-                                    </ul>
-                                    <a href="#" class="price-btn">Get started today</a>
-                                </div>
-                            </div>
-                            <!-- /.End Of Single Pricing Table -->
-                        </li>
-                    </ul>
-                    <div class="slider-navs">
-                        <div class="prev-nav" id="prev"><i class="fa fa-angle-left"></i></div>
-                        <div class="next-nav" id="next"><i class="fa fa-angle-right"></i></div>
-                    </div>
-                </div>
-            </div>
-    </section>
-    <!-- /.End Of Pricing Area -->
+    
 
 
 
     <!--   end of slider area-->
-    <section class="footer-area" id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-sm-3 col-xs-12 col-lg-4">
-                    <div class="single-footer">
-                        <h2>about us</h2>
-                        <p>ABOUT US Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-3 col-xs-12 col-lg-2">
-                    <div class="single-footer">
-                        <h2>More links</h2>
-                        <ul class="list">
-                            <li><a href="#">about us.</a></li>
-                            <li><a href="#">We Accepts.</a></li>
-                            <li><a href="#">news latters</a></li>
-                            <li><a href="#">Pricing & plans</a></li>
-                            <li><a href="#">Calculate</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-3 col-xs-12 col-lg-3">
-                    <div class="single-footer">
-                        <h2>We Accepts</h2>
-                        <a href="#"><img src="../img/cards_credt_1.png" alt="#"></a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-3 col-xs-12 col-lg-3">
-                    <div class="single-footer clearfix">
-                        <h2>news latters</h2>
-                        <input type="text" class="form-control">
-                        <input type="submit" class="submt-button" value="submit">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--end of footer area-->
+ 
 
     <!--   start copyright text area-->
     <div class="copyright-area">

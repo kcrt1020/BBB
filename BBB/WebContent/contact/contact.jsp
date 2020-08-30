@@ -99,7 +99,7 @@
                 <div class="col-md-6 col-sm-6">
                     <div class="contact-form">
                         <h2 class="contact_page_headings">Send us a message</h2>
-                        <form method="post" action="http://crazycafe.net">
+                        <form method="post" action="SendMail.jsp">
                             <input type="text" name="username" placeholder="Your name">
                             <input type="email" name="email_address" placeholder="Email address">
                             <input type="text" name="subject" placeholder="Subject">

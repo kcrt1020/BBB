@@ -69,7 +69,7 @@ public class MemberDAO {
 			try {
 			con = getCon();
 			// sql
-			sql="insert into bbb_member values(?,?,?,?,?,?,?,?,?,?)";
+			sql="insert into bbb_member values(?,?,?,?,?,?,?,?,?,?,?,?)";
 				pstmt=con.prepareStatement(sql);
 			
 			// ?
@@ -79,10 +79,12 @@ public class MemberDAO {
 			pstmt.setString(4, mb.getBirth());
 			pstmt.setString(5, mb.getEmail());
 			pstmt.setString(6, mb.getGender());
-			pstmt.setString(7, mb.getAddr());
-			pstmt.setString(8, mb.getPhone());
-			pstmt.setString(9, mb.getMobile());
-			pstmt.setDate(10, mb.getReg_date());
+			pstmt.setString(7, mb.getAddr1());
+			pstmt.setString(8, mb.getAddr2());
+			pstmt.setString(9, mb.getAddr3());
+			pstmt.setString(10, mb.getPhone());
+			pstmt.setString(11, mb.getMobile());
+			pstmt.setDate(12, mb.getReg_date());
 			
 			// 실행
 			pstmt.executeUpdate();
@@ -213,7 +215,9 @@ public class MemberDAO {
 				mb.setName(rs.getString("name"));
 				mb.setReg_date(rs.getDate("reg_date"));
 				mb.setPw(rs.getString("pw"));
-				mb.setAddr(rs.getString("addr"));
+				mb.setAddr1(rs.getString("addr1"));
+				mb.setAddr2(rs.getString("addr2"));
+				mb.setAddr3(rs.getString("addr3"));
 				mb.setBirth(rs.getString("birth"));
 				mb.setMobile(rs.getString("mobile"));
 				mb.setPhone(rs.getString("phone"));
@@ -267,17 +271,19 @@ public class MemberDAO {
 						// 데이터 수정
 						
 						// 3 sql & pstmt
-						sql = "update bbb_member set name=?,birth=?,gender=?,email=?,addr=?,phone=?,mobile=? where id=?";
+						sql = "update bbb_member set name=?,birth=?,gender=?,email=?,addr1=?,addr2=?,addr3=?,phone=?,mobile=? where id=?";
 						pstmt=con.prepareStatement(sql);
 						
 						pstmt.setString(1, mb.getName());
 						pstmt.setString(2, mb.getBirth());
 						pstmt.setString(3, mb.getGender());
 						pstmt.setString(4, mb.getEmail());
-						pstmt.setString(5, mb.getAddr());
-						pstmt.setString(6, mb.getPhone());
-						pstmt.setString(7, mb.getMobile());
-						pstmt.setString(8, mb.getId());
+						pstmt.setString(5, mb.getAddr1());
+						pstmt.setString(6, mb.getAddr2());
+						pstmt.setString(7, mb.getAddr3());
+						pstmt.setString(8, mb.getPhone());
+						pstmt.setString(9, mb.getMobile());
+						pstmt.setString(10, mb.getId());
 					
 						
 						// 4 실행
@@ -395,7 +401,9 @@ public class MemberDAO {
 					mb.setName(rs.getString("name"));
 					mb.setReg_date(rs.getDate("reg_date"));
 					mb.setPw(rs.getString("pw"));
-					mb.setAddr(rs.getString("addr"));
+					mb.setAddr1(rs.getString("addr1"));
+					mb.setAddr2(rs.getString("addr2"));
+					mb.setAddr3(rs.getString("addr3"));
 					mb.setBirth(rs.getString("birth"));
 					mb.setMobile(rs.getString("mobile"));
 					mb.setPhone(rs.getString("phone"));

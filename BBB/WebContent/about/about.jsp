@@ -157,8 +157,10 @@
             <div class="row">
                 <div class="col-md-5 col-xs-12 col-sm-8">
                     <div class="slients-title">
-                        <h2>What our clients say</h2>
-                        <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat,</p>
+                        <h2>Since 2020 빵빵브레드</h2>
+                        <p>고객과 소통하는 고객중심 경영이념을 바탕으로<br>
+							고객의 건강과 행복을 회사의 최고 보람으로 여기며,<br>
+							정직하고 신뢰 받는 빵빵브레드가 되도록 노력하겠습니다.</p>
                     </div>
                 </div>
             </div>
@@ -169,8 +171,8 @@
                             <img src="../img/client.jpg" alt="client">
                         </div>
                         <div class="client-details">
-                            <p>“Lorem ipsum dolor sit amet, consectetuer adipis cing elit, sed diam nonummy nibh euismod tinci dunt ut laoreet dolore magna aliquam.”</p>
-                            <h4>John Doe<span>Student</span></h4>
+                        
+                            <h4>Gong<span>Chief executive officer</span></h4>
                         </div>
                     </div>
                 </div>
@@ -180,8 +182,8 @@
                             <img src="../img/client-2.jpg" alt="client">
                         </div>
                         <div class="client-details">
-                            <p>“Lorem ipsum dolor sit amet, consectetuer adipis cing elit, sed diam nonummy nibh euismod tinci dunt ut laoreet dolore magna aliquam.”</p>
-                            <h4>John Doe<span>Student</span></h4>
+                           
+                            <h4>Bae<span>Excutive Manger</span></h4>
                         </div>
                     </div>
                 </div>

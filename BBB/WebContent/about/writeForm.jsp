@@ -18,9 +18,7 @@
 
 	 if(id==null){
 		 response.sendRedirect("../about/notice.jsp");	
-		%>
-		 alert("로그인을 해주세요.");
-	 <%}
+}
 	
 %>
 
@@ -98,34 +96,28 @@
  
  
 
- <section class="about_us_area" id="about">
+   <section class="join-page-area">
         <div class="container">
-            <div class="row page-title">
+            <div class="row">
                 <div class="col-md-6 col-sm-6 col-xs-6 text-left">
                     <div class="about_us_content_title">
                         <h2>Notice</h2>
                         <h5>글쓰기 </h5>
-                    </div>
+                   </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-6 text-right">
-                    <div class="about_us_content_title">
-                        <ul class="breadcrumbs">
-                            <li><a href="../about/notice.jsp">공지사항</a></li>
-                            <li><a href="#">이벤트</a></li>
-                        </ul>
-                    </div>
+                 
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 col-sm-6">
-                    <div class="about_us_content">
-                      <nav id="sub_menu">
+                    <div class="join-form">
 
 <!-- 게시판 -->
  
  
- <form action="writePro.jsp" method="post" name="fr">
-<table id="notice">
+ <form action="writePro.jsp" method="post" name="fr" >
+<table id="notice" width="550px">
 <tr>
 <td>글쓴이</td>
 <td>

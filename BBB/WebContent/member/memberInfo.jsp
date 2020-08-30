@@ -133,7 +133,7 @@
 	</tr>
 	<tr>
 	<td>주소</td>
-	<td><%=mb.getAddr() %></td>
+	<td><%=mb.getAddr1() %><br><%=mb.getAddr2() %><%=mb.getAddr3() %></td>
 	</tr>
 	<tr>
 	<td>전화번호</td>

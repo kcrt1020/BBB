@@ -166,7 +166,20 @@
     	%>
     <tr>
     <td><%=bb.getBno() %></td>
-    <td class="left"><a href="content.jsp?bno=<%=bb.getBno()%>&pageNum=<%=pageNum%>"><%=bb.getSubject() %></a></td>
+    <td class="left">
+    <%
+	// 답글 들여쓰기 처리
+	int wid=0;
+	// 답글일 때 
+		if(bb.getRe_lev()>0){	
+			wid=10*bb.getRe_lev();
+	%>
+	<img src="level.gif" width="<%=wid%> height="15">
+	→
+	<%
+		}
+	%>
+    <a href="content.jsp?bno=<%=bb.getBno()%>&pageNum=<%=pageNum%>"><%=bb.getSubject() %></a></td>
     <td><%=bb.getName() %></td>
     <td><%=bb.getDate() %></td>
     <td><%=bb.getReadcount() %></td>

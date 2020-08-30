@@ -98,28 +98,22 @@
  
  
 
- <section class="about_us_area" id="about">
+    <section class="join-page-area">
         <div class="container">
-            <div class="row page-title">
+            <div class="row">
                 <div class="col-md-6 col-sm-6 col-xs-6 text-left">
                     <div class="about_us_content_title">
                         <h2>Notice</h2>
                         <h5>글쓰기 </h5>
-                    </div>
+                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-6 text-right">
-                    <div class="about_us_content_title">
-                        <ul class="breadcrumbs">
-                            <li><a href="../about/notice.jsp">공지사항</a></li>
-                            <li><a href="#">이벤트</a></li>
-                        </ul>
-                    </div>
+                 
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 col-sm-6">
-                    <div class="about_us_content">
-                      <nav id="sub_menu">
+                    <div class="join-form">
 
 <!-- 게시판 -->
  
@@ -130,7 +124,7 @@
 	<input type="hidden" name="re_lev" value="<%=re_lev%>">
 	<input type="hidden" name="re_seq" value="<%=re_seq%>">
 	
-<table id="notice">
+<table id="notice" width="550px">
 <tr>
 <td>글쓴이</td>
 <td>
@@ -146,7 +140,7 @@
 <tr>
 <td>제목</td>
 <td>
-	<input type="text" name="subject">
+	<input type="text" name="subject" value="[답글]">
 </td>
 </tr>
 <tr>

@@ -105,29 +105,19 @@
     </section>
  
  
-
- <section class="about_us_area" id="about">
-        <div class="container">
+<section class="about_us_area" id="about">
+    <div class="container">
             <div class="row page-title">
                 <div class="col-md-6 col-sm-6 col-xs-6 text-left">
                     <div class="about_us_content_title">
                         <h2>Notice</h2>
-                        <h5>글쓰기 </h5>
-                    </div>
+                        <h5>공지사항 </h5>
+                  </div>
                 </div>
-                <div class="col-md-6 col-sm-6 col-xs-6 text-right">
-                    <div class="about_us_content_title">
-                        <ul class="breadcrumbs">
-                            <li><a href="../about/notice.jsp">공지사항</a></li>
-                            <li><a href="#">이벤트</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+              </div>
             <div class="row">
                 <div class="col-md-6 col-sm-6">
                     <div class="about_us_content">
-                      <nav id="sub_menu">
 
 <!-- 게시판 -->
  
@@ -135,44 +125,40 @@
 
 
 	  <section class="join-page-area">
-	<table border="1">
+	<table width="550px">
 	<tr>
-	<td>글번호</td>
+	<td><b>글번호</b></b></td>
 	<td><%=bb.getBno() %></td>
-	<td>조회수</td>
+	<td><b>조회수</b></td>
 	<td><%=bb.getReadcount() %></td>	
 	</tr>
 	
 	<tr>
-	<td>작성자</td>
+	<td><b>작성자</b></td>
 	<td><%=bb.getName() %></td>
-	<td>작성일</td>
+	<td><b>작성일</b></td>
 	<td><%=bb.getDate() %></td>	
 	</tr>	
 	
 	<tr>
-	<td>제목</td>
+	<td><b>제목</b></td>
 	<td colspan="3"><%=bb.getSubject() %></td>
 	</tr>
 	
+	
 	<tr>
-	<td>첨부파일</td>
-	<td colspan="3">
-	<a href="D:\upfile\<%=bb.getFile()%>"><%=bb.getFile() %></td>
+	<td colspan="4"><b>글내용</b></td>
 	</tr>
 	
 	<tr>
-	<td>글내용</td>
-	<td colspan="3"><%=bb.getContent() %></td>
+	<td colspan="4"><%=bb.getContent() %></td>
 	</tr>
 	
-	<tr>
-	<td colspan="4">
-
-	<!--  로그인 정보가 없거나, 글쓴이 이름과 아이디가 다를 경우 수정하기, 삭제하기 버튼을 숨김
-			로그인한 아이디의 정보가 글쓴이 이름과 같다면 수정하기, 삭제하기를 보여주기
-	 -->
-	 <%
+	
+	</table>
+	
+	<br><br><br><br><br><br>
+ <%
 	 if(id != null && id.equals(bb.getName())){	
 		 // 아이디 있으면서, 이름이랑 아이디 같은 경우	 
 	 %> 
@@ -189,11 +175,7 @@
 	<input type="button" value="답글쓰기"
 			onclick="location.href='reWriteForm.jsp?bno=<%=bb.getBno() %>&re_ref=<%=bb.getRe_ref() %>&re_lev=<%=bb.getRe_lev() %>&re_seq=<%=bb.getRe_seq() %>'">
 	<input type="button" value="목록으로" onclick="location.href='notice.jsp?pageNum=<%=pageNum%>'">
-	</td>
-	</tr>
 	
-	</table>
-
 
                     </div>
                 </div>

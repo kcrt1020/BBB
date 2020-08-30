@@ -155,22 +155,17 @@
 
 
 <table id="notice" width="900px" style="text-align:left;">
-<tr><th class="tno">No.</th>
-    <th class="ttitle">Title</th>
-    <th class="twrite">Writer</th>
-    <th class="tdate">Date</th>
-    <th class="tread">Read</th></tr>
+
     
     <% for(int i=0;i<boardList.size();i++){
     	productsBean pb = (productsBean)boardList.get(i);
     	%>
     <tr>
-    <td><%=pb.getBno() %></td>
-    <td class="left"><a href="content.jsp?bno=<%=pb.getBno()%>&pageNum=<%=pageNum%>"><%=pb.getSubject() %></a></td>
-    <td><%=pb.getName() %></td>
-    <td><%=pb.getDate() %></td>
-    <td><%=pb.getReadcount() %></td>
-    </tr>
+    
+   <tr>
+    <td><img src="upfile/<%=pb.getFile()%>"></td></tr>
+   <tr> <td class="center"><h3><a href="content.jsp?bno=<%=pb.getBno()%>&pageNum=<%=pageNum%>"><%=pb.getSubject() %></a></h3></td> </tr>   
+    
 	<%} %>
 	
 </table>
@@ -199,19 +194,19 @@
 		// 이전
 		if(startPage>pageBlock){
 			%>
-			<A href="notice.jsp?pageNum=<%=startPage-pageBlock%>">[이전]</A>
+			<A href="products.jsp?pageNum=<%=startPage-pageBlock%>">[이전]</A>
 			<%
 		}
 		// 숫자 (1...10/11...20/...)
 		for(int i=startPage;i<=endPage;i++){
 			%>
-			<a href="notice.jsp?pageNum=<%=i%>">[<%=i %>]</a>
+			<a href="products.jsp?pageNum=<%=i%>">[<%=i %>]</a>
 			<%
 		}
 		// 다음
 		if(endPage<pageCount){
 			%>
-			<A href="notice.jsp?pageNum=<%=startPage+pageBlock%>">[다음]</A>
+			<A href="products.jsp?pageNum=<%=startPage+pageBlock%>">[다음]</A>
 			<%
 		}
 	}

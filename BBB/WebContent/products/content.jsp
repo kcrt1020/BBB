@@ -133,37 +133,19 @@
 
 
 	  <section class="join-page-area">
-	<table border="1">
+	<table  width="800px">
 	<tr>
-	<td>글번호</td>
-	<td><%=pb.getBno() %></td>
-	<td>조회수</td>
-	<td><%=pb.getReadcount() %></td>	
+	
+	<tr>
+	<td><h2><%=pb.getSubject() %></h2></td>
 	</tr>
 	
 	<tr>
-	<td>작성자</td>
-	<td><%=pb.getName() %></td>
-	<td>작성일</td>
-	<td><%=pb.getDate() %></td>	
-	</tr>	
-	
-	<tr>
-	<td>제목</td>
-	<td colspan="3"><%=pb.getSubject() %></td>
+	<td><img src="upfile\<%=pb.getFile()%>"></td>
 	</tr>
 	
 	<tr>
-	<td>첨부파일</td>
-	<td colspan="3">
-	<a href="upfile\<%=pb.getFile()%>"><%=pb.getFile() %></td>
-	<td colspan="3">
-	<img src="upfile\<%=pb.getFile()%>"><%=pb.getFile() %></td>
-	</tr>
-	
-	<tr>
-	<td>글내용</td>
-	<td colspan="3"><%=pb.getContent() %></td>
+	<td><%=pb.getContent() %></td>
 	</tr>
 	
 	<tr>
@@ -173,7 +155,7 @@
 			로그인한 아이디의 정보가 글쓴이 이름과 같다면 수정하기, 삭제하기를 보여주기
 	 -->
 	 <%
-	 if(id != null && id.equals(pb.getName())){	
+	 if(id == "admin"){	
 		 // 아이디 있으면서, 이름이랑 아이디 같은 경우	 
 	 %> 
 	 
@@ -186,8 +168,6 @@
 	 } else if (id == null || !id.equals(pb.getName()));
 	 %>
 	 
-	<input type="button" value="답글쓰기"
-			onclick="location.href='reWriteForm.jsp?bno=<%=pb.getBno() %>&re_ref=<%=pb.getRe_ref() %>&re_lev=<%=pb.getRe_lev() %>&re_seq=<%=pb.getRe_seq() %>'">
 	<input type="button" value="목록으로" onclick="location.href='products.jsp?pageNum=<%=pageNum%>'">
 	</td>
 	</tr>

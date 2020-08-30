@@ -19,7 +19,7 @@
 	// 파일 업로드 => cos.jar (MultipartRequest 클래스)
 	
 	// 파일이 저장되는 위치 (D:/upfile)
-	String savePath="D:\\jsp_workspace\\BBB\\WebContent\\products\\upfile";
+	String savePath="D:\\IT\\git\\BBB\\WebContent\\products\\upfile";
 	// 파일 업로드 최대 크기 5MB (20~250MB)
 	int maxSize = 10 * 1024 * 1024;
 	

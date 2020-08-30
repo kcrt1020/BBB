@@ -1,3 +1,5 @@
+<%@page import="com.bbb.member.MemberBean"%>
+<%@page import="com.bbb.member.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -8,7 +10,11 @@
 	
 	// 로그인 체크 (세션 id 값이 있는지 없는지 체크)
 	String id= (String)session.getAttribute("id");
-	String name= (String)session.getAttribute("name");
+
+	
+	MemberDAO mdao = new MemberDAO();
+	// id에 해당하는 회원정보 가져오기 getMember(id)
+	MemberBean mb=mdao.getMember(id);
 	%>
 <head>
     <meta charset="utf-8">
@@ -58,7 +64,6 @@
                                   <li><a href="../about/notice.jsp">NOTICE</a></li>
                                     <li><a href="../products/products.jsp">PRODUCTS</a></li>
                                     <li><a href="../store/store.jsp">STORE</a></li>
-                                    <li><a href="../delivery/delivery.jsp">DELIVERY</a></li>
                                     <li><a href="../contact/contact.jsp">CONTACT</a></li>
                             </ul>
                         </nav>
@@ -70,7 +75,7 @@
                             <li><a href="../member/loginForm.jsp">login</a></li>
                             <li><a href="../member/joinForm.jsp">sign up</a></li>
                             <%} else{%>
-							 <li><a><%=name %>님 </a> </li>
+							 <li><a><%=mb.getName() %>님 </a> </li>
 							 <li><a href="../member/logout.jsp">로그아웃</a></li>
 								<%
 									} %>
@@ -126,20 +131,20 @@
             <div class="row">
                 <div class="col-md-4 col-sm-4 col-xs-12 col-lg-4">
                     <div class="single-about-us-bottom">
-                        <h4>what we do</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat,</p>
+                        <h4>소비자신뢰</h4>
+                        <p>소비자 건강과 행복을 최우선으로 고려<br>소비자와 적극소통<br>지속적인 제품개발</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12 col-lg-4">
                     <div class="single-about-us-bottom">
-                        <h4>our history</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, </p>
+                        <h4>정직한 경영</h4>
+                        <p>직원간 충분한 의사소통<br>윤리적 책임경영<br>정직한 제품생산</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12 col-lg-4">
                     <div class="single-about-us-bottom">
-                        <h4>our mission</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
+                        <h4>사랑의 기업</h4>
+                        <p>행복한 사회를 위한 봉사활동<br>사회적 책임기업<br>나눔정신 실현</p>
                     </div>
                 </div>
             </div>

@@ -1,32 +1,19 @@
-<%@page import="com.bbb.member.MemberDAO"%>
 <%@page import="com.bbb.member.MemberBean"%>
-<%@page import="com.bbb.board.BoardBean"%>
-<%@page import="com.bbb.board.BoardDAO"%>
-<%@page import="java.util.ArrayList"%>
-
-<%@page import="java.util.List"%>
-
+<%@page import="com.bbb.member.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-
 <html lang="en">
 	<%
 	// 화면 상단에 위치하는 메뉴 처리 (모든 페이지에 공유)
 	
 	// 로그인 체크 (세션 id 값이 있는지 없는지 체크)
 	String id= (String)session.getAttribute("id");
+	String name= (String)session.getAttribute("name");
 	
-	// BoardDAO 객체 생성
-	BoardDAO bdao = new BoardDAO();
+	MemberDAO mdao = new MemberDAO();
 	// id에 해당하는 회원정보 가져오기 getMember(id)
-		MemberDAO mdao = new MemberDAO();
-		// id에 해당하는 회원정보 가져오기 getMember(id)
-		MemberBean mb=mdao.getMember(id);
-	// 테이블에 저장된 글의 개수 계산 메서드
-	// getBoardCount()
-	int count = bdao.getBoardCount();		
+	MemberBean mb=mdao.getMember(id);
 	%>
 <head>
     <meta charset="utf-8">
@@ -54,12 +41,7 @@
 </head>
 
 <body class="js">
-
-
- <!-- top -->
- 
-  <div id="preloader"></div>
-
+    <div id="preloader"></div>
     <section class="about-us">
         <div class="logo_menu" id="sticker">
             <div class="container">
@@ -72,11 +54,11 @@
                     <div class="col-md-6 col-xs-6 col-md-offset-1 col-sm-7 col-lg-offset-1 col-lg-6 mobMenuCol">
                         <nav class="navbar">
                             <ul class="nav navbar-nav navbar-right menu">
-                                 <li><a href="../about/about.jsp">BBB</a></li>
-                                 <li class="current-menu-item"><a href="../about/notice.jsp">NOTICE</a></li>
+                               <li><a href="../about/about.jsp">BBB</a></li>
+                                <li><a href="../about/notice.jsp">NOTICE</a></li>
                                     <li><a href="../products/products.jsp">PRODUCTS</a></li>
-                                    <li><a href="../store/store.jsp">STORE</a></li>
-                                    <li><a href="../contact/contact.jsp">CONTACT</a></li>
+                                    <li class="current-menu-item"><a href="../store/store.jsp">STORE</a></li>
+                                   <li><a href="../contact/contact.jsp">CONTACT</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -87,7 +69,7 @@
                             <li><a href="../member/loginForm.jsp">login</a></li>
                             <li><a href="../member/joinForm.jsp">sign up</a></li>
                             <%} else{%>
-							 <li><a href="../member/memberInfo.jsp"><%=mb.getName() %>님 </a> </li>
+							 <li><a><%=mb.getName() %>님 </a> </li>
 							 <li><a href="../member/logout.jsp">로그아웃</a></li>
 								<%
 									} %>
@@ -97,146 +79,87 @@
             </div>
         </div>
     </section>
-
- <section class="about_us_area" id="about">
-    <div class="container">
-            <div class="row page-title">
+    <!--    start contact page content-->
+    <section class="contact-page-area">
+        <div class="container">
+            <div class="row">
                 <div class="col-md-6 col-sm-6 col-xs-6 text-left">
                     <div class="about_us_content_title">
-                        <h2>Notice</h2>
-                        <h5>공지사항 [글 : <%=count %>개]</h5>
+                        <h2>Store</h2>
+                        <h5>매장찾기</h5>
                     </div>
                 </div>
-              </div>
+                <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                    <div class="about_us_content_title">
+                
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-md-6 col-sm-6">
-                    <div class="about_us_content">
- 						
- <%
-	
-		
-		
-		// 페이징 처리 *******************************************************
-
-		// 한 페이지에서 보여줄 글의 개수 설정
-		int pageSize = 5;
-		// 현 페이지의 페이지값을 확인
-		String pageNum = request.getParameter("pageNum");
-		if(pageNum == null){	// 페이지 정보가 없을 경우 항상 1페이지
-			pageNum="1";
-			
-		}
-		
-		// 시작 행번호 계산 1...10 / 11...20 / 21...30 / 31...40
-		int currentPage =Integer.parseInt(pageNum);
-		int startRow = (currentPage-1) * pageSize + 1;
-		
-		// 끝 행번호 계산
-		int endRow = currentPage * pageSize;
-		
-		// 페이징 처리 *******************************************************
-		
-		
-		
-		
-		ArrayList boardList=null;
-		// 글이 있을 경우 모든 글의 정보를 가져오는 메서드
-		if(count != 0){
-			boardList=bdao.getBoardList(startRow,pageSize);
-		}
-	
-	%>
-
-     
-                    
-
-<!-- 게시판 -->
-
-
-
-<table id="notice" width="900px" style="text-align:left;">
-<tr><th class="tno">No.</th>
-    <th class="ttitle">Title</th>
-    <th class="twrite">Writer</th>
-    <th class="tdate">Date</th>
-    <th class="tread">Read</th></tr>
-    
-    <% for(int i=0;i<boardList.size();i++){
-    	BoardBean bb = (BoardBean)boardList.get(i);
-    	%>
-    <tr>
-    <td><%=bb.getBno() %></td>
-    <td class="left"><a href="content.jsp?bno=<%=bb.getBno()%>&pageNum=<%=pageNum%>"><%=bb.getSubject() %></a></td>
-    <td><%=bb.getName() %></td>
-    <td><%=bb.getDate() %></td>
-    <td><%=bb.getReadcount() %></td>
-    </tr>
-	<%} %>
-	
-</table>
-
-<%
-	// 다른 페이지 이동 버튼
-	if(count != 0){
-		// 전체 페이지수 - 글 50 / 화면10씩 출력 =>5페이지
-		//			- 글 56 / 화면10씩 출력 => 6페이지
-		
-		int pageCount = count/pageSize+(count % pageSize == 0? 0:1);
-		
-		// 한 화면에 보여줄 페이지 번호 개수
-		int pageBlock = 2;
-		
-		// 페이지 블럭의 시작페이지번호 1...10/11...20/21...30/31...40
-		int startPage = ((currentPage-1)/pageBlock)*pageBlock+1;
-		
-		// 페이지 블럭의 끝 페이지 번호
-		int endPage = startPage+pageBlock-1;
-		if(endPage>pageCount){
-			endPage=pageCount;
-		}
-		
-		
-		// 이전
-		if(startPage>pageBlock){
-			%>
-			<A href="notice.jsp?pageNum=<%=startPage-pageBlock%>">[이전]</A>
-			<%
-		}
-		// 숫자 (1...10/11...20/...)
-		for(int i=startPage;i<=endPage;i++){
-			%>
-			<a href="notice.jsp?pageNum=<%=i%>">[<%=i %>]</a>
-			<%
-		}
-		// 다음
-		if(endPage<pageCount){
-			%>
-			<A href="notice.jsp?pageNum=<%=startPage+pageBlock%>">[다음]</A>
-			<%
-		}
-	}
-	%>
-	
-	
-	
-<div id="table_search">
-<input type="text" name="search" class="input_box" >
-<input type="button" value="search" class="btn">
-<input type="button" value="글쓰기" class="btn" onclick="location.href='writeForm.jsp'">
-
-
-</div>
-<div class="clear"></div>
-
-                    </div>
-                </div>
                
+                 
+            <div id="map" style="width:1000px;height:500px;"></div>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5426256a74ed299a68cf52992394bb00"></script>
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+    mapOption = { 
+        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };
+
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+ 
+// 마커를 표시할 위치와 title 객체 배열입니다 
+var positions = [
+    {
+        title: '카카오', 
+        latlng: new kakao.maps.LatLng(33.450705, 126.570677)
+    },
+    {
+        title: '생태연못', 
+        latlng: new kakao.maps.LatLng(33.450936, 126.569477)
+    },
+    {
+        title: '텃밭', 
+        latlng: new kakao.maps.LatLng(33.450879, 126.569940)
+    },
+    {
+        title: '근린공원',
+        latlng: new kakao.maps.LatLng(33.451393, 126.570738)
+    }
+];
+
+// 마커 이미지의 이미지 주소입니다
+var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+    
+for (var i = 0; i < positions.length; i ++) {
+    
+    // 마커 이미지의 이미지 크기 입니다
+    var imageSize = new kakao.maps.Size(24, 35); 
+    
+    // 마커 이미지를 생성합니다    
+    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+    
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({
+        map: map, // 마커를 표시할 지도
+        position: positions[i].latlng, // 마커를 표시할 위치
+        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+        image : markerImage // 마커 이미지 
+    });
+}
+</script>
+                        
+               
+                </div>
             </div>
         </div>
     </section>
 
- 
-    <!--   end of slider area-->
+
+    <!--start footer area-->
     <section class="footer-area" id="contact">
         <div class="container">
             <div class="row">
@@ -247,9 +170,6 @@
                     </div>
                 </div>
                 <div class="col-md-2 col-sm-3 col-xs-12 col-lg-2">
-                
-                
-                
                     <div class="single-footer">
                         <h2>More links</h2>
                         <ul class="list">
@@ -277,9 +197,6 @@
             </div>
         </div>
     </section>
-    <!--end of footer area-->
-
-    <!--   start copyright text area-->
     <div class="copyright-area">
         <div class="container">
             <div class="col-xs-12 col-sm-6 col-md-6 text-left">
@@ -298,28 +215,16 @@
             </div>
         </div>
     </div>
-    <!--    end of copyright text area-->
-
-    <!--  jquery.min.js  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-    <!--    bootstrap.min.js-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <!--    jquery.sticky.js-->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script src="../js/jquery.counterup.min.js"></script>
     <script src="../js/jquery.sticky.js"></script>
-    <!--  owl.carousel.min.js  -->
     <script src="../js/jquery.meanmenu.js"></script>
     <script src="../js/owl.carousel.min.js"></script>
-    <!--  jquery.mb.YTPlayer.min.js   -->
-    <script src="../js/jquery.mb.YTPlayer.min.js"></script>
-    <!--    slick.min.js-->
     <script src="../js/slick.min.js"></script>
-    <!--    jquery.nav.js-->
-    <script src="../js/jquery.nav.js"></script>
-    <!--jquery waypoints js-->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-    <!--    jquery counterup js-->
-    <script src="../js/jquery.counterup.min.js"></script>
-    <!--    main.js-->
+    <script src="../js/jquery.mb.YTPlayer.min.js"></script>
     <script src="../js/main.js"></script>
 </body>
 

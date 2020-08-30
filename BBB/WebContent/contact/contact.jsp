@@ -1,3 +1,5 @@
+<%@page import="com.bbb.member.MemberBean"%>
+<%@page import="com.bbb.member.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -8,6 +10,10 @@
 	// 로그인 체크 (세션 id 값이 있는지 없는지 체크)
 	String id= (String)session.getAttribute("id");
 	String name= (String)session.getAttribute("name");
+	
+	MemberDAO mdao = new MemberDAO();
+	// id에 해당하는 회원정보 가져오기 getMember(id)
+	MemberBean mb=mdao.getMember(id);
 	%>
 <head>
     <meta charset="utf-8">
@@ -52,7 +58,6 @@
                                 <li><a href="../about/notice.jsp">NOTICE</a></li>
                                     <li><a href="../products/products.jsp">PRODUCTS</a></li>
                                     <li><a href="../store/store.jsp">STORE</a></li>
-                                    <li><a href="../delivery/delivery.jsp">DELIVERY</a></li>
                                    <li class="current-menu-item"><a href="../contact/contact.jsp">CONTACT</a></li>
                             </ul>
                         </nav>
@@ -64,7 +69,7 @@
                             <li><a href="../member/loginForm.jsp">login</a></li>
                             <li><a href="../member/joinForm.jsp">sign up</a></li>
                             <%} else{%>
-							 <li><a><%=name %>님 </a> </li>
+							 <li><a><%=mb.getName() %>님 </a> </li>
 							 <li><a href="../member/logout.jsp">로그아웃</a></li>
 								<%
 									} %>
@@ -81,15 +86,12 @@
                 <div class="col-md-6 col-sm-6 col-xs-6 text-left">
                     <div class="about_us_content_title">
                         <h2>contact us</h2>
-                        <h5>no about us more</h5>
+                        <h5>메세지 보내기</h5>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-6 text-right">
                     <div class="about_us_content_title">
-                        <ul class="breadcrumbs">
-                            <li><a href="#">home</a></li>
-                            <li><a href="#">contact</a></li>
-                        </ul>
+                
                     </div>
                 </div>
             </div>
@@ -107,9 +109,20 @@
                     </div>
                 </div>
                 <div class="col-md-5 col-md-offset-1 col-sm-6">
-                    <div class="google-map">
-                        <div id="googleMap"></div>
-                    </div>
+                 
+             <div id="map" style="width:500px;height:500px;"></div>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5426256a74ed299a68cf52992394bb00"></script>
+	<script>
+		var container = document.getElementById('map');
+		var options = {
+			center: new kakao.maps.LatLng(35.1585847,129.0620088),
+			level: 2
+		};
+
+		var map = new kakao.maps.Map(container, options);
+	</script>
+                        
+               
                 </div>
             </div>
         </div>

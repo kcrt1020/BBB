@@ -1,3 +1,5 @@
+<%@page import="com.bbb.member.MemberBean"%>
+<%@page import="com.bbb.member.MemberDAO"%>
 <%@page import="javafx.scene.control.Alert"%>
 <%@page import="com.bbb.board.BoardBean"%>
 <%@page import="java.util.List"%>
@@ -23,6 +25,10 @@
 	// 글 정보를 가져오는 메서드 생성 (getBoard(bno))
 	//bdao.getBoard(bno);
 	BoardBean bb = bdao.getBoard(bno);
+	MemberDAO mdao = new MemberDAO();
+
+	// id에 해당하는 회원정보 가져오기 getMember(id)
+	MemberBean mb=mdao.getMember(id);
 
 %>
 
@@ -87,7 +93,7 @@
                             <li><a href="../member/loginForm.jsp">login</a></li>
                             <li><a href="../member/joinForm.jsp">sign up</a></li>
                             <%} else{%>
-							 <li><a href="../member/memberInfo.jsp"><%=name %>님 </a> </li>
+							 <li><a href="../member/memberInfo.jsp"><%=mb.getName() %>님 </a> </li>
 							 <li><a href="../member/logout.jsp">로그아웃</a></li>
 								<%
 									} %>

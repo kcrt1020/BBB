@@ -1,11 +1,5 @@
-<%@page import="com.bbb.member.MemberDAO"%>
-<%@page import="com.bbb.member.MemberBean"%>
-<%@page import="com.bbb.board.BoardBean"%>
-<%@page import="com.bbb.board.BoardDAO"%>
-<%@page import="java.util.ArrayList"%>
-
+<%@page import="javafx.scene.control.Alert"%>
 <%@page import="java.util.List"%>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -17,17 +11,17 @@
 	
 	// 로그인 체크 (세션 id 값이 있는지 없는지 체크)
 	String id= (String)session.getAttribute("id");
+	String name= (String)session.getAttribute("name");
+	 // 세션 ID값을 사용해서 글쓴이 지정
+
+	 if(id==null){
+		 response.sendRedirect("../products/products.jsp");	
 	
-	// BoardDAO 객체 생성
-	BoardDAO bdao = new BoardDAO();
-	// id에 해당하는 회원정보 가져오기 getMember(id)
-		MemberDAO mdao = new MemberDAO();
-		// id에 해당하는 회원정보 가져오기 getMember(id)
-		MemberBean mb=mdao.getMember(id);
-	// 테이블에 저장된 글의 개수 계산 메서드
-	// getBoardCount()
-	int count = bdao.getBoardCount();		
-	%>
+	 }
+	
+%>
+
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -73,9 +67,10 @@
                         <nav class="navbar">
                             <ul class="nav navbar-nav navbar-right menu">
                                  <li><a href="../about/about.jsp">BBB</a></li>
-                                 <li class="current-menu-item"><a href="../about/notice.jsp">NOTICE</a></li>
-                                    <li><a href="../products/products.jsp">PRODUCTS</a></li>
+                                 <li><a href="../about/notice.jsp">NOTICE</a></li>
+                                    <li class="current-menu-item"><a href="../products/products.jsp">PRODUCTS</a></li>
                                     <li><a href="../store/store.jsp">STORE</a></li>
+                                    <li><a href="../delivery/delivery.jsp">DELIVERY</a></li>
                                     <li><a href="../contact/contact.jsp">CONTACT</a></li>
                             </ul>
                         </nav>
@@ -87,7 +82,7 @@
                             <li><a href="../member/loginForm.jsp">login</a></li>
                             <li><a href="../member/joinForm.jsp">sign up</a></li>
                             <%} else{%>
-							 <li><a href="../member/memberInfo.jsp"><%=mb.getName() %>님 </a> </li>
+							 <li><a><%=name %>님 </a> </li>
 							 <li><a href="../member/logout.jsp">로그아웃</a></li>
 								<%
 									} %>
@@ -97,136 +92,72 @@
             </div>
         </div>
     </section>
+ 
+ 
 
  <section class="about_us_area" id="about">
-    <div class="container">
+        <div class="container">
             <div class="row page-title">
                 <div class="col-md-6 col-sm-6 col-xs-6 text-left">
                     <div class="about_us_content_title">
-                        <h2>Notice</h2>
-                        <h5>공지사항 [글 : <%=count %>개]</h5>
+                        <h2>Products</h2>
+                        <h5>제품소개 </h5>
                     </div>
                 </div>
-              </div>
+                <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                  
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-md-6 col-sm-6">
                     <div class="about_us_content">
- 						
- <%
-	
-		
-		
-		// 페이징 처리 *******************************************************
-
-		// 한 페이지에서 보여줄 글의 개수 설정
-		int pageSize = 5;
-		// 현 페이지의 페이지값을 확인
-		String pageNum = request.getParameter("pageNum");
-		if(pageNum == null){	// 페이지 정보가 없을 경우 항상 1페이지
-			pageNum="1";
-			
-		}
-		
-		// 시작 행번호 계산 1...10 / 11...20 / 21...30 / 31...40
-		int currentPage =Integer.parseInt(pageNum);
-		int startRow = (currentPage-1) * pageSize + 1;
-		
-		// 끝 행번호 계산
-		int endRow = currentPage * pageSize;
-		
-		// 페이징 처리 *******************************************************
-		
-		
-		
-		
-		ArrayList boardList=null;
-		// 글이 있을 경우 모든 글의 정보를 가져오는 메서드
-		if(count != 0){
-			boardList=bdao.getBoardList(startRow,pageSize);
-		}
-	
-	%>
-
-     
-                    
+                      <nav id="sub_menu">
 
 <!-- 게시판 -->
-
-
-
-<table id="notice" width="900px" style="text-align:left;">
-<tr><th class="tno">No.</th>
-    <th class="ttitle">Title</th>
-    <th class="twrite">Writer</th>
-    <th class="tdate">Date</th>
-    <th class="tread">Read</th></tr>
-    
-    <% for(int i=0;i<boardList.size();i++){
-    	BoardBean bb = (BoardBean)boardList.get(i);
-    	%>
-    <tr>
-    <td><%=bb.getBno() %></td>
-    <td class="left"><a href="content.jsp?bno=<%=bb.getBno()%>&pageNum=<%=pageNum%>"><%=bb.getSubject() %></a></td>
-    <td><%=bb.getName() %></td>
-    <td><%=bb.getDate() %></td>
-    <td><%=bb.getReadcount() %></td>
-    </tr>
-	<%} %>
-	
+ 
+ 
+ <form action="writePro.jsp" method="post" enctype="multipart/form-data">
+<table id="notice">
+<tr>
+<td>글쓴이</td>
+<td>
+	<input type="text" name="name" value="<%=id%>" readonly="readonly">
+</td>
+</tr>
+<tr>
+<td>비밀번호</td>
+<td>
+	<input type="password" name="pw">
+</td>
+</tr>
+<tr>
+<td>제목</td>
+<td>
+	<input type="text" name="subject">
+</td>
+</tr>
+<tr>
+<td>내용</td>
+<td>
+	<textarea rows="10" cols="20" name="content"></textarea>
+</td>
+</tr>
+<td>파일</td>
+<td>
+	<input type="file" name = "file">
+</td>
+</tr>
 </table>
-
-<%
-	// 다른 페이지 이동 버튼
-	if(count != 0){
-		// 전체 페이지수 - 글 50 / 화면10씩 출력 =>5페이지
-		//			- 글 56 / 화면10씩 출력 => 6페이지
-		
-		int pageCount = count/pageSize+(count % pageSize == 0? 0:1);
-		
-		// 한 화면에 보여줄 페이지 번호 개수
-		int pageBlock = 2;
-		
-		// 페이지 블럭의 시작페이지번호 1...10/11...20/21...30/31...40
-		int startPage = ((currentPage-1)/pageBlock)*pageBlock+1;
-		
-		// 페이지 블럭의 끝 페이지 번호
-		int endPage = startPage+pageBlock-1;
-		if(endPage>pageCount){
-			endPage=pageCount;
-		}
-		
-		
-		// 이전
-		if(startPage>pageBlock){
-			%>
-			<A href="notice.jsp?pageNum=<%=startPage-pageBlock%>">[이전]</A>
-			<%
-		}
-		// 숫자 (1...10/11...20/...)
-		for(int i=startPage;i<=endPage;i++){
-			%>
-			<a href="notice.jsp?pageNum=<%=i%>">[<%=i %>]</a>
-			<%
-		}
-		// 다음
-		if(endPage<pageCount){
-			%>
-			<A href="notice.jsp?pageNum=<%=startPage+pageBlock%>">[다음]</A>
-			<%
-		}
-	}
-	%>
-	
-	
-	
 <div id="table_search">
-<input type="text" name="search" class="input_box" >
-<input type="button" value="search" class="btn">
-<input type="button" value="글쓰기" class="btn" onclick="location.href='writeForm.jsp'">
-
-
+<input type="submit" value="글쓰기" class="btn">
 </div>
 <div class="clear"></div>
+
+<div id="page_control">
+</div>
+</form>
+
 
                     </div>
                 </div>

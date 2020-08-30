@@ -1286,7 +1286,9 @@ ul.breadcrumbs li {
 
 /*contact us page css*/
 
+
 .contact-page-area {
+
     padding: 120px 0 80px;
 }
 
@@ -1358,7 +1360,9 @@ box-shadow: none;
 /*joinForm us page css*/
 
 .join-page-area {
+	
     padding: 120px 0 80px;
+    padding-left: 30%;
 }
 
 .join-form input {
@@ -1390,11 +1394,50 @@ box-shadow: none;
     color: #fff;
     font-size: 20px;
     text-transform: uppercase;
-    width: 40%;
+    width: 100%;
     transition: .4s
 }
 
 .join-form input[type="submit"]:hover {
     background: #fff;
     color: #f9bf3b
+}
+
+
+/*notice page css*/
+
+.notice-page-area {
+    padding: 120px 0 80px;
+    padding-left: 30%;
+    width: 1000px;
+}
+
+.notice-form input {
+    border: 2px solid #eee;
+    height: 50px;
+    margin-bottom: 15px;
+    margin-right: 15px;
+    width: 100%;
+}
+
+.notice-form textarea {
+    border: 2px solid #eee;
+    height: 200px;
+    margin-bottom: 30px;
+    margin-right: 15px;
+    padding: 20px;
+    width: 100%;
+}
+
+
+.notice_page_headings {
+    color: #222;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 40px;
+    font-family: 'montserratsemi_bold';
+}
+
+.table_search {
+	padding-right: 30px;
 }

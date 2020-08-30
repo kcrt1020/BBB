@@ -1,3 +1,5 @@
+<%@page import="com.bbb.member.MemberBean"%>
+<%@page import="com.bbb.member.MemberDAO"%>
 <%@page import="javafx.scene.control.Alert"%>
 <%@page import="com.bbb.board.BoardBean"%>
 <%@page import="java.util.List"%>
@@ -11,13 +13,17 @@
 	<%
 	request.setCharacterEncoding("UTF-8");
 	// 화면 상단에 위치하는 메뉴 처리 (모든 페이지에 공유)
-	
+
 	// 로그인 체크 (세션 id 값이 있는지 없는지 체크)
 	String id= (String)session.getAttribute("id");
 	String name= (String)session.getAttribute("name");
 
 	 int bno= Integer.parseInt(request.getParameter("bno"));
 	String pageNum = request.getParameter("pageNum");
+	
+	MemberDAO mdao = new MemberDAO();
+	// id에 해당하는 회원정보 가져오기 getMember(id)
+	MemberBean mb=mdao.getMember(id);
 	
 	 // 세션 ID값을 사용해서 글쓴이 지정
 
@@ -77,8 +83,7 @@
                                  <li><a href="../about/about.jsp">BBB</a></li>
                                  <li class="current-menu-item"><a href="../about/notice.jsp">NOTICE</a></li>
                                     <li><a href="../products/products.jsp">PRODUCTS</a></li>
-                                    <li><a href="../store/store.jsp">STORE</a></li>
-                                    <li><a href="../delivery/delivery.jsp">DELIVERY</a></li>
+                                    <li><a href="../store/store.jsp">STORE</a></li>                                    
                                     <li><a href="../contact/contact.jsp">CONTACT</a></li>
                             </ul>
                         </nav>
@@ -90,7 +95,7 @@
                             <li><a href="../member/loginForm.jsp">login</a></li>
                             <li><a href="../member/joinForm.jsp">sign up</a></li>
                             <%} else{%>
-							 <li><a><%=name %>님 </a> </li>
+							 <li><a><%=mb.getName() %>님 </a> </li>
 							 <li><a href="../member/logout.jsp">로그아웃</a></li>
 								<%
 									} %>
@@ -109,17 +114,10 @@
                 <div class="col-md-6 col-sm-6 col-xs-6 text-left">
                     <div class="about_us_content_title">
                         <h2>Notice</h2>
-                        <h5>글쓰기 </h5>
+                        <h5>글삭제하기 </h5>
                     </div>
                 </div>
-                <div class="col-md-6 col-sm-6 col-xs-6 text-right">
-                    <div class="about_us_content_title">
-                        <ul class="breadcrumbs">
-                            <li><a href="../about/notice.jsp">공지사항</a></li>
-                            <li><a href="#">이벤트</a></li>
-                        </ul>
-                    </div>
-                </div>
+              
             </div>
             <div class="row">
                 <div class="col-md-6 col-sm-6">
@@ -131,11 +129,12 @@
 <fieldset>
 	<form action="deletePro.jsp?pageNum=<%=pageNum %>" method="post">
 	<input type="hidden" name="bno" value="<%=bno%>">
-	비밀번호 : <input type ="password" name = "passwd">
+	비밀번호를 입력해주세요.<br>
+	 <input type ="password" name = "passwd" placeholder="passward">
 	<input type="submit" value="삭제하기">	
 	</form>	
 	</fieldset>
-	
+	<br><br><br><br><br><br><br><br>
 
 
                     </div>

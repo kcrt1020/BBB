@@ -82,7 +82,7 @@
     
     
     
-	<form action="loginPro.jsp" id="join" method="post">
+<form action="loginPro.jsp" id="login" method="post">
 <fieldset>
 <legend>로그인 정보</legend>
 <label>ID</label>
@@ -90,12 +90,13 @@
 <label>비밀번호</label>
 <input type="password" name="pw"><br>
 </fieldset>
-<div class="clear"></div>
+
 <div id="buttons">
-<input type="submit" value="Submit" class="submit">
-<input type="reset" value="Cancel" class="cancel">
-</div>
-</form>
+	<input type="submit" name="submit" value="login">
+	<input type="reset" value="Cancel" class="cancel">
+	
+	</div>
+	</form>
 	     </div>
                 </div>
               
@@ -103,7 +104,7 @@
             </div>
         </div>
     </section>
-	
+	<br><br><br><br><br><br><br><br><br><br><br><br>
 	<%
 	
 	
@@ -146,43 +147,7 @@
 
 
     <!--start footer area-->
-    <section class="footer-area" id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-sm-3 col-xs-12 col-lg-4">
-                    <div class="single-footer">
-                        <h2>about us</h2>
-                        <p>ABOUT US Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-3 col-xs-12 col-lg-2">
-                    <div class="single-footer">
-                        <h2>More links</h2>
-                        <ul class="list">
-                            <li><a href="#">about us.</a></li>
-                            <li><a href="#">We Accepts.</a></li>
-                            <li><a href="#">news latters</a></li>
-                            <li><a href="#">Pricing & plans</a></li>
-                            <li><a href="#">Calculate</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-3 col-xs-12 col-lg-3">
-                    <div class="single-footer">
-                        <h2>We Accepts</h2>
-                        <a href="#"><img src="../img/cards_credt_1.png" alt="#"></a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-3 col-xs-12 col-lg-3">
-                    <div class="single-footer clearfix">
-                        <h2>news latters</h2>
-                        <input type="text" class="form-control">
-                        <input type="submit" class="submt-button" value="submit">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  
     <div class="copyright-area">
         <div class="container">
             <div class="col-xs-12 col-sm-6 col-md-6 text-left">

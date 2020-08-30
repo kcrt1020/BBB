@@ -1,7 +1,7 @@
+<%@page import="com.bbb.products.productsBean"%>
+<%@page import="com.bbb.products.productsDAO"%>
 <%@page import="com.bbb.member.MemberDAO"%>
 <%@page import="com.bbb.member.MemberBean"%>
-<%@page import="com.bbb.board.BoardBean"%>
-<%@page import="com.bbb.board.BoardDAO"%>
 <%@page import="java.util.ArrayList"%>
 
 <%@page import="java.util.List"%>
@@ -19,14 +19,14 @@
 	String id= (String)session.getAttribute("id");
 	
 	// BoardDAO 객체 생성
-	BoardDAO bdao = new BoardDAO();
+	productsDAO pdao = new productsDAO();
 	// id에 해당하는 회원정보 가져오기 getMember(id)
 		MemberDAO mdao = new MemberDAO();
 		// id에 해당하는 회원정보 가져오기 getMember(id)
 		MemberBean mb=mdao.getMember(id);
 	// 테이블에 저장된 글의 개수 계산 메서드
 	// getBoardCount()
-	int count = bdao.getBoardCount();		
+	int count = pdao.getBoardCount();		
 	%>
 <head>
     <meta charset="utf-8">
@@ -73,8 +73,8 @@
                         <nav class="navbar">
                             <ul class="nav navbar-nav navbar-right menu">
                                  <li><a href="../about/about.jsp">BBB</a></li>
-                                 <li class="current-menu-item"><a href="../about/notice.jsp">NOTICE</a></li>
-                                    <li><a href="../products/products.jsp">PRODUCTS</a></li>
+                                 <li><a href="../about/notice.jsp">NOTICE</a></li>
+                                    <li class="current-menu-item"><a href="../products/products.jsp">PRODUCTS</a></li>
                                     <li><a href="../store/store.jsp">STORE</a></li>
                                     <li><a href="../contact/contact.jsp">CONTACT</a></li>
                             </ul>
@@ -103,8 +103,8 @@
             <div class="row page-title">
                 <div class="col-md-6 col-sm-6 col-xs-6 text-left">
                     <div class="about_us_content_title">
-                        <h2>Notice</h2>
-                        <h5>공지사항 [글 : <%=count %>개]</h5>
+                        <h2>Products</h2>
+                        <h5>제품소개</h5>
                     </div>
                 </div>
               </div>
@@ -142,7 +142,7 @@
 		ArrayList boardList=null;
 		// 글이 있을 경우 모든 글의 정보를 가져오는 메서드
 		if(count != 0){
-			boardList=bdao.getBoardList(startRow,pageSize);
+			boardList=pdao.getBoardList(startRow,pageSize);
 		}
 	
 	%>
@@ -162,14 +162,14 @@
     <th class="tread">Read</th></tr>
     
     <% for(int i=0;i<boardList.size();i++){
-    	BoardBean bb = (BoardBean)boardList.get(i);
+    	productsBean pb = (productsBean)boardList.get(i);
     	%>
     <tr>
-    <td><%=bb.getBno() %></td>
-    <td class="left"><a href="content.jsp?bno=<%=bb.getBno()%>&pageNum=<%=pageNum%>"><%=bb.getSubject() %></a></td>
-    <td><%=bb.getName() %></td>
-    <td><%=bb.getDate() %></td>
-    <td><%=bb.getReadcount() %></td>
+    <td><%=pb.getBno() %></td>
+    <td class="left"><a href="content.jsp?bno=<%=pb.getBno()%>&pageNum=<%=pageNum%>"><%=pb.getSubject() %></a></td>
+    <td><%=pb.getName() %></td>
+    <td><%=pb.getDate() %></td>
+    <td><%=pb.getReadcount() %></td>
     </tr>
 	<%} %>
 	

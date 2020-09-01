@@ -87,7 +87,7 @@
 	<fieldset>
 	<legend>필수정보</legend>
 	<label>*아이디</label> <br>
-	<input type="text" name="id" placeholder="6자리 이상 입력해주세요."><input type="button" name="idcheck" value="아이디확인"  onclick="winopen()"><br>
+	<input type="text" name="id" placeholder="5자리 이상 입력해주세요."><input type="button" name="idcheck" value="아이디확인"  onclick="winopen()"><br>
 	<label>*비밀번호</label> <br>
 	<input type="password" name="pw" placeholder="6자리 이상 입력해주세요."><br>
 	<label>*비밀번호 확인</label> <br>
@@ -97,10 +97,10 @@
 	<label>*생년월일</label> <br>
 	<input type="text" name="birth" placeholder="6자리로 입력해주세요."><br>
 	<label>*이메일</label> <br>
-	<input type="text" name="email"><br>
+	<input type="text" name="email" placeholder="ex)abc@bbb.com"><br>
 	<label>*성별</label> <br>
-	<input type="radio" name="gender" value="여자" style="height: 20px">여자
-	<input type="radio" name="gender" value="남자" style="height: 20px">남자<br>
+	<center><input type="radio" name="gender" value="여자" style="height: 20px; text-align: left;">여자
+	<input type="radio" name="gender" value="남자" style="height: 20px">남자</center><br>
 	</fieldset>
 	
 	<br><br><br>
@@ -198,6 +198,9 @@
 	function check(){
 		// alert("테스트");
 		// 아이디가 입력이 안돼있을 경우 "아이디를 입력하시오!"
+		var pw1=document.fr.pw.value;
+		var pw2=document.fr.pw2.value;
+		
 		
 		if(document.fr.id.value.length <5){
 			alert("아이디를 5자리 이상 입력하세요!");
@@ -205,13 +208,13 @@
 			return false;
 		}	
 		
-		if(document.fr.pw.value.length <=0){
-			alert("비밀번호를 입력하세요!");
+		if(document.fr.pw.value.length<6){
+			alert("비밀번호를 6자리 이상 입력하세요!");
 			document.fr.pw.focus();
 			return false;
 		}
 		
-		if(document.fr.pw2.value != document.fr.pw1.value){
+		if(pw1 != pw2){
 			alert("비밀번호가 일치하지 않습니다!");
 			document.fr.pw2.focus();
 			return false;
@@ -223,7 +226,7 @@
 			return false;
 		}
 		
-		if(document.fr.birth.value.length <=0){
+		if(document.fr.birth.value.length<6){
 			alert("생년월일을 입력하세요!");
 			document.fr.birth.focus();
 			return false;
@@ -235,9 +238,8 @@
 			return false;
 		}
 		
-		if(document.fr.gender.value ){
+		if(document.fr.gender[0].checked==false && document.fr.gender[1].checked==false){
 			alert("성별을 체크하세요!");
-			document.fr.email.focus();
 			return false;
 		}
 	}
@@ -246,8 +248,8 @@
 		// id를 입력하는 텍스트 상자에 값이 비어있는지 없는지 판단
 		// 값이 비어있을 경우 "ID를 입력하시오", focus(), 진행 X
 		// 값이 있을 경우 진행 O
-		if(document.fr.id.value.length<=0){
-			alert("ID를 입력하시오.");
+		if(document.fr.id.value.length<5){
+			alert("아이디를 5자리 이상 입력하세요!");
 			document.fr.id.focus();
 			return; // function 종료
 		}
@@ -261,22 +263,58 @@
 
 	</script>
 
+    <!--start footer area-->
+     <section class="footer-area" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-sm-3 col-xs-12 col-lg-4">
+                    <div class="single-footer">
+                        <h2>빵빵브레드</h2>
+                         <p>SINCE 2020</p>
+                        ENJOY THE BBANGBBANG BREAD
+                       
+                    </div>
+                </div>
+                <div class="col-md-10 col-sm-5 col-xs-12 col-lg-4">
+                
+                
+                
+                    <div class="single-footer">
+                        <h2>More links</h2>
+                        <ul class="list">
+                            <li><a href="../about/about.jsp">BBB</a></li>
+                            <li><a href="../about/notice.jsp">NOTICE</a></li>
+                            <li><a href="../products/products.jsp">PRODUCTS</a></li>
+                            <li><a href="../store/store.jsp">STORE</a></li>
+                            <li><a href="../contact/contact.jsp">CONTACT</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-12 col-lg-3">
+                   
+                    <div class="single-footer clearfix">
+                        <h2>Contact Us</h2>
+                        고객센터<br>000-000-0000<br>평일 09:00-18:00 <br>(점심 12:00-13:00)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--end of footer area-->
 
- 
-    <div class="copyright-area">
+    <!--   start copyright text area-->
+     <div class="copyright-area">
         <div class="container">
             <div class="col-xs-12 col-sm-6 col-md-6 text-left">
                 <div class="footer-text">
-                    <p>Copyright 2016, All Rights Reserved</p>
+                    <p>Copyright 2020, All Rights Reserved</p>
                 </div>
             </div>
             <div class="col-xs-12  col-sm-6 col-md-6 text-right">
                 <div class="footer-text">
-                    <a href="#" class="fa fa-facebook"></a>
-                    <a href="#" class="fa fa-twitter"></a>
-                    <a href="#" class="fa fa-linkedin"></a>
-                    <a href="#" class="fa fa-google-plus"></a>
-                    <a href="#" class="fa fa-dribbble"></a>
+                    <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
+                    <a href="https://twitter.com/" class="fa fa-twitter"></a>
+                    <a href="https://www.linkedin.com/" class="fa fa-linkedin"></a>
                 </div>
             </div>
         </div>

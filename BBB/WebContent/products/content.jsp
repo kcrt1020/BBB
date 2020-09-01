@@ -123,7 +123,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6 col-sm-6">
+                <div class="col-md-5 col-sm-3">
                     <div class="about_us_content">
                       <nav id="sub_menu">
 
@@ -137,7 +137,7 @@
 	<tr>
 	
 	<tr>
-	<td><h2><%=pb.getSubject() %></h2></td>
+	<td><h1><%=pb.getSubject() %></h1></td>
 	</tr>
 	
 	<tr>
@@ -145,17 +145,19 @@
 	</tr>
 	
 	<tr>
-	<td><%=pb.getContent() %></td>
+	<td><h2><%=pb.getContent() %></h2></td>
 	</tr>
 	
 	<tr>
 	<td colspan="4">
+	
+	<br><br><br><br><br>
 
 	<!--  로그인 정보가 없거나, 글쓴이 이름과 아이디가 다를 경우 수정하기, 삭제하기 버튼을 숨김
 			로그인한 아이디의 정보가 글쓴이 이름과 같다면 수정하기, 삭제하기를 보여주기
 	 -->
 	 <%
-	 if(id == "admin"){	
+	 if(id != null && id.equals(pb.getName())){	
 		 // 아이디 있으면서, 이름이랑 아이디 같은 경우	 
 	 %> 
 	 
@@ -183,42 +185,39 @@
     </section>
 	</section>
  
-    <!--   end of slider area-->
-    <section class="footer-area" id="contact">
+  
+    <!--start footer area-->
+     <section class="footer-area" id="contact">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-sm-3 col-xs-12 col-lg-4">
+                <div class="col-md-10 col-sm-3 col-xs-12 col-lg-4">
                     <div class="single-footer">
-                        <h2>about us</h2>
-                        <p>ABOUT US Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+                        <h2>빵빵브레드</h2>
+                         <p>SINCE 2020</p>
+                        ENJOY THE BBANGBBANG BREAD
+                       
                     </div>
                 </div>
-                <div class="col-md-2 col-sm-3 col-xs-12 col-lg-2">
+                <div class="col-md-10 col-sm-5 col-xs-12 col-lg-4">
                 
                 
                 
                     <div class="single-footer">
                         <h2>More links</h2>
                         <ul class="list">
-                            <li><a href="#">about us.</a></li>
-                            <li><a href="#">We Accepts.</a></li>
-                            <li><a href="#">news latters</a></li>
-                            <li><a href="#">Pricing & plans</a></li>
-                            <li><a href="#">Calculate</a></li>
+                            <li><a href="../about/about.jsp">BBB</a></li>
+                            <li><a href="../about/notice.jsp">NOTICE</a></li>
+                            <li><a href="../products/products.jsp">PRODUCTS</a></li>
+                            <li><a href="../store/store.jsp">STORE</a></li>
+                            <li><a href="../contact/contact.jsp">CONTACT</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-3 col-xs-12 col-lg-3">
-                    <div class="single-footer">
-                        <h2>We Accepts</h2>
-                        <a href="#"><img src="../img/cards_credt_1.png" alt="#"></a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-3 col-xs-12 col-lg-3">
+                   
                     <div class="single-footer clearfix">
-                        <h2>news latters</h2>
-                        <input type="text" class="form-control">
-                        <input type="submit" class="submt-button" value="submit">
+                        <h2>Contact Us</h2>
+                        고객센터<br>000-000-0000<br>평일 09:00-18:00 <br>(점심 12:00-13:00)
                     </div>
                 </div>
             </div>
@@ -227,46 +226,32 @@
     <!--end of footer area-->
 
     <!--   start copyright text area-->
-    <div class="copyright-area">
+     <div class="copyright-area">
         <div class="container">
             <div class="col-xs-12 col-sm-6 col-md-6 text-left">
                 <div class="footer-text">
-                    <p>Copyright 2016, All Rights Reserved</p>
+                    <p>Copyright 2020, All Rights Reserved</p>
                 </div>
             </div>
             <div class="col-xs-12  col-sm-6 col-md-6 text-right">
                 <div class="footer-text">
-                    <a href="#" class="fa fa-facebook"></a>
-                    <a href="#" class="fa fa-twitter"></a>
-                    <a href="#" class="fa fa-linkedin"></a>
-                    <a href="#" class="fa fa-google-plus"></a>
-                    <a href="#" class="fa fa-dribbble"></a>
+                    <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
+                    <a href="https://twitter.com/" class="fa fa-twitter"></a>
+                    <a href="https://www.linkedin.com/" class="fa fa-linkedin"></a>
                 </div>
             </div>
         </div>
     </div>
-    <!--    end of copyright text area-->
-
-    <!--  jquery.min.js  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-    <!--    bootstrap.min.js-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <!--    jquery.sticky.js-->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script src="../js/jquery.counterup.min.js"></script>
     <script src="../js/jquery.sticky.js"></script>
-    <!--  owl.carousel.min.js  -->
     <script src="../js/jquery.meanmenu.js"></script>
     <script src="../js/owl.carousel.min.js"></script>
-    <!--  jquery.mb.YTPlayer.min.js   -->
-    <script src="../js/jquery.mb.YTPlayer.min.js"></script>
-    <!--    slick.min.js-->
     <script src="../js/slick.min.js"></script>
-    <!--    jquery.nav.js-->
-    <script src="../js/jquery.nav.js"></script>
-    <!--jquery waypoints js-->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-    <!--    jquery counterup js-->
-    <script src="../js/jquery.counterup.min.js"></script>
-    <!--    main.js-->
+    <script src="../js/jquery.mb.YTPlayer.min.js"></script>
     <script src="../js/main.js"></script>
 </body>
 

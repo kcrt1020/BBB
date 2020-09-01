@@ -1,28 +1,39 @@
+<%@page import="com.bbb.products.productsBean"%>
+<%@page import="com.bbb.products.productsDAO"%>
 <%@page import="com.bbb.member.MemberBean"%>
 <%@page import="com.bbb.member.MemberDAO"%>
+<%@page import="com.bbb.board.BoardBean"%>
+<%@page import="java.util.List"%>
+<%@page import="com.bbb.board.BoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<%
-	// jSP6/updateForm.jsp 참고해서 페이지 생성
-	// DB 처리를 DAO 객체로 전달해서 처리
-	
-	// 로그인 세션처리
-	request.setCharacterEncoding("utf-8");
-	String id=(String)session.getAttribute("id");
-	if(id==null){
-		response.sendRedirect("../main/main.jsp");
-	}
-	// memberDAO 객체 생성
-		MemberDAO mdao = new MemberDAO();
 
+<html lang="en">
+	<%
+	int bno= Integer.parseInt(request.getParameter("bno"));
+	String pageNum = request.getParameter("pageNum");
+	// 로그인 체크 (세션 id 값이 있는지 없는지 체크)
+	String id= (String)session.getAttribute("id");
+	// memberDAO 객체 생성
+	MemberDAO mdao = new MemberDAO();
 	// id에 해당하는 회원정보 가져오기 getMember(id)
 	MemberBean mb=mdao.getMember(id);
+	 
+	// 글정보를 가져오기
 	
+	// BoardDAO 객체 생성
+	productsDAO pdao = new productsDAO();
 	
-	%>
-	
+	// 글정보 가져오는 메서드 - getBoard(bno)
+	productsBean pb = pdao.getBoard(bno);
+	 if(id==null){
+		 response.sendRedirect("../products/products.jsp");	
+	 }
+%>
+
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -49,7 +60,12 @@
 </head>
 
 <body class="js">
-    <div id="preloader"></div>
+
+
+ <!-- top -->
+ 
+  <div id="preloader"></div>
+
     <section class="about-us">
         <div class="logo_menu" id="sticker">
             <div class="container">
@@ -62,23 +78,23 @@
                     <div class="col-md-6 col-xs-6 col-md-offset-1 col-sm-7 col-lg-offset-1 col-lg-6 mobMenuCol">
                         <nav class="navbar">
                             <ul class="nav navbar-nav navbar-right menu">
-                               <li><a href="../about/about.jsp">BBB</a></li>
-                                <li><a href="../about/notice.jsp">NOTICE</a></li>
-                                    <li><a href="../products/products.jsp">PRODUCTS</a></li>
+                                 <li><a href="../about/about.jsp">BBB</a></li>
+                                 <li><a href="../about/notice.jsp">NOTICE</a></li>
+                                    <li class="current-menu-item"><a href="../products/products.jsp">PRODUCTS</a></li>
                                     <li><a href="../store/store.jsp">STORE</a></li>
                                     <li><a href="../delivery/delivery.jsp">DELIVERY</a></li>
-                                 <li> <a href="../contact/contact.jsp">CONTACT</a></li>
+                                    <li><a href="../contact/contact.jsp">CONTACT</a></li>
                             </ul>
                         </nav>
                     </div>
                     <div class="col-md-3 col-sm-3 col-xs-4 col-lg-3 signup">
                         <ul class="nav navbar-nav">
-                         <%
+                              <%
 							if(id==null){ %>	
                             <li><a href="../member/loginForm.jsp">login</a></li>
                             <li><a href="../member/joinForm.jsp">sign up</a></li>
                             <%} else{%>
-							 <li><a href="../member/memberInfo.jsp"><%=mb.getName() %>님 </a> </li>
+							  <li><a href="../member/memberInfo.jsp"><%=mb.getName() %>님 </a> </li>
 							 <li><a href="../member/logout.jsp">로그아웃</a></li>
 								<%
 									} %>
@@ -88,16 +104,17 @@
             </div>
         </div>
     </section>
-    
-    
-       <section class="join-page-area">
-        <div class="container">
+ 
+ 
+
+ <section class="join-page-area">
+       <div class="container">
             <div class="row">
                 <div class="col-md-6 col-sm-6 col-xs-6 text-left">
                     <div class="about_us_content_title">
-                        <h2>SIGN UP</h2>
-                        <h5>정보수정</h5>
-                    </div>
+                        <h2>Notice</h2>
+                        <h5>글수정하기 </h5>
+                  </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-6 text-right">
                  
@@ -106,71 +123,63 @@
             <div class="row">
                 <div class="col-md-6 col-sm-6">
                     <div class="join-form">
-                      
-    
-    
-    
-	<fieldset>
-	<legend>회원 정보 탈퇴하기</legend>
-	<form action="deletePro.jsp" method="post">
-	<!-- hidden 타입 : 화면에 해당 input 태그를 숨겨서 정보를 전달-->
-	아이디 <input type="text" name="id" value="<%=id %>" readonly="readonly"><br>
-	비밀번호 <input type="password" name="pw"><br>
-	<input type="submit" value="탈퇴하기">
-	</form>
-	
-	</fieldset>
-	
-	     </div>
+
+<!-- 게시판 -->
+ 
+ 
+ <form action="updatePro.jsp?pageNum=<%=pageNum%>" method="post" name="fr">
+<table id="notice" width="700px">
+<input type ="hidden" name ="bno" value="<%=pb.getBno()%>">
+<tr>
+<td>작성자</td> <br>
+<td>
+	<input type="text" name="name" value="<%=pb.getName()%>"  readonly="readonly">
+</td>
+</tr>
+<tr>
+<td>비밀번호</td>
+<td>
+	<input type="password"  name="pw">
+</td>
+</tr>
+<tr>
+<td>제목</td>
+<td>
+	<input type="text" name="subject" size=20 value="<%=pb.getSubject()%>">
+</td>
+</tr>
+<tr>
+<td>내용</td>
+<td>
+	<textarea rows="20" cols="60" name="content"><%=pb.getContent()%></textarea>
+</td>
+</tr>
+<tr>
+<td>파일</td>
+<td>
+	<input type="file" name = "file" >
+</td>
+</tr>
+</table>
+<div id="table_search">
+<input type="submit" align="middle" value="글수정하기" class="btn">
+</div>
+<div class="clear"></div>
+
+<div id="page_control">
+</div>
+</form>
+
+
+                    </div>
                 </div>
-              
-                </div>
+               
             </div>
         </div>
     </section>
-	
-	<%
-	
-	
-	%>
-	<script type="text/javascript">
-	/* 사용자가 회원 가입시 */
-	// 데이터 빈공백 체크
-	// 가입조건 만족 (ex.. 아이디가 최소 5자리 이상, 영문자/숫자 사용)
-	// 추가 정보는 입력을 안해도 됨
-	
-	function check(){
-		// alert("테스트");
-		// 아이디가 입력이 안돼있을 경우 "아이디를 입력하시오!"
-		
-		if(document.fr.id.value.length <= 0){
-			alert("아이디를 입력하시오!");
-			document.fr.id.focus();
-			return false;
-		}	
-	}
-
-	function winopen(){
-		// id를 입력하는 텍스트 상자에 값이 비어있는지 없는지 판단
-		// 값이 비어있을 경우 "ID를 입력하시오", focus(), 진행 X
-		// 값이 있을 경우 진행 O
-		if(document.fr.id.value.length<=0){
-			alert("ID를 입력하시오.");
-			document.fr.id.focus();
-			return; // function 종료
-		}
-			
-		// 새창을 열어서 페이지 오픈 => 회원 아이디 정보 중복체크
-		// 페이지 이동 시 입력한 ID값 가지고 이동
-		var id=document.fr.id.value;
-		window.open("joinIdCheck.jsp?userid="+id,"","width=400,height=200");
-		}
-	
-
-	</script>
 
  
-    <!--start footer area-->
+    <!--   end of slider area-->
      <section class="footer-area" id="contact">
         <div class="container">
             <div class="row">

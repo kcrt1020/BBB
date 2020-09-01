@@ -294,8 +294,10 @@
             <div class="row">
                 <div class="col-md-5 col-xs-12 col-sm-8">
                     <div class="slients-title">
-                        <h2>What our clients say</h2>
-                        <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat,</p>
+                        <h2>Since 2020 빵빵브레드</h2>
+                        <p>고객과 소통하는 고객중심 경영이념을 바탕으로<br>
+							고객의 건강과 행복을 회사의 최고 보람으로 여기며,<br>
+							정직하고 신뢰 받는 빵빵브레드가 되도록 노력하겠습니다.</p>
                     </div>
                 </div>
             </div>
@@ -306,8 +308,8 @@
                             <img src="../img/client.jpg" alt="client">
                         </div>
                         <div class="client-details">
-                            <p>“Lorem ipsum dolor sit amet, consectetuer adipis cing elit, sed diam nonummy nibh euismod tinci dunt ut laoreet dolore magna aliquam.”</p>
-                            <h4>John Doe<span>Student</span></h4>
+                        
+                            <h4>Gong<span>Chief executive officer</span></h4>
                         </div>
                     </div>
                 </div>
@@ -317,8 +319,8 @@
                             <img src="../img/client-2.jpg" alt="client">
                         </div>
                         <div class="client-details">
-                            <p>“Lorem ipsum dolor sit amet, consectetuer adipis cing elit, sed diam nonummy nibh euismod tinci dunt ut laoreet dolore magna aliquam.”</p>
-                            <h4>John Doe<span>Student</span></h4>
+                           
+                            <h4>Bae<span>Excutive Manger</span></h4>
                         </div>
                     </div>
                 </div>
@@ -335,49 +337,34 @@
  
 
     <!--   start copyright text area-->
-    <div class="copyright-area">
+ 
+     <div class="copyright-area">
         <div class="container">
             <div class="col-xs-12 col-sm-6 col-md-6 text-left">
                 <div class="footer-text">
-                    <p>Copyright 2016, All Rights Reserved</p>
+                    <p>Copyright 2020, All Rights Reserved</p>
                 </div>
             </div>
             <div class="col-xs-12  col-sm-6 col-md-6 text-right">
                 <div class="footer-text">
-                    <a href="#" class="fa fa-facebook"></a>
-                    <a href="#" class="fa fa-twitter"></a>
-                    <a href="#" class="fa fa-linkedin"></a>
-                    <a href="#" class="fa fa-google-plus"></a>
-                    <a href="#" class="fa fa-dribbble"></a>
+                    <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
+                    <a href="https://twitter.com/" class="fa fa-twitter"></a>
+                    <a href="https://www.linkedin.com/" class="fa fa-linkedin"></a>
                 </div>
             </div>
         </div>
     </div>
-    <!--    end of copyright text area-->
-
-    <!--  jquery.min.js  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-    <!--    bootstrap.min.js-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <!--    jquery.sticky.js-->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script src="../js/jquery.counterup.min.js"></script>
     <script src="../js/jquery.sticky.js"></script>
-    <!--  owl.carousel.min.js  -->
     <script src="../js/jquery.meanmenu.js"></script>
     <script src="../js/owl.carousel.min.js"></script>
-    <!--  jquery.mb.YTPlayer.min.js   -->
-    <script src="../js/jquery.mb.YTPlayer.min.js"></script>
-    <!--    slick.min.js-->
     <script src="../js/slick.min.js"></script>
-    <!--    jquery.nav.js-->
-    <script src="../js/jquery.nav.js"></script>
-    <!--jquery waypoints js-->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-    <!--    jquery counterup js-->
-    <script src="../js/jquery.counterup.min.js"></script>
-    <!--    main.js-->
+    <script src="../js/jquery.mb.YTPlayer.min.js"></script>
     <script src="../js/main.js"></script>
 </body>
 
-</html>
-</body>
 </html>

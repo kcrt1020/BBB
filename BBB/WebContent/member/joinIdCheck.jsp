@@ -30,7 +30,7 @@
 		out.print("사용가능한 아이디입니다.");
 		// "아이디 선택" 버튼 추가
 		%>
-		<input type="button" value="아이디 사용하기" onclick="result();">
+		<input type="button" value="아이디 사용하기" onclick="return result();">
 		<%
 	}else if(check==0){
 		out.print("사용 불가능한 아이디입니다.(중복)");
@@ -44,7 +44,7 @@
 	<fieldset>
 	<form action="joinIdCheck.jsp" method="post" name="wfr">
 	ID : <input type="text" name="userid" value="<%=id%>">
-	<input type="submit" value="중복 확인">
+	<input type="submit" value="중복 확인" onclick="return check();">
 	</form>
 	
 	</fieldset>
@@ -52,11 +52,21 @@
 	
 	
 	<script type="text/javascript">
+	
+	function check(){
+		if(document.wfr.userid.value.length<5){
+			alert("아이디를 5자리 이상 입력하세요!");
+			document.wfr.userid.focus();
+			return false;
+		}
+	}
+	
 	function result(){
 		// 중복확인창에서 회원가입 페이지로 정보 전달
 		// 새창에 있는 아이디 정보 -> 회원가입창에 아이디 정보 전달
 	// alert("새창 : "+document.wfr.userid.value);
 	// alert("회원가입창 : "+opener.fr.id.value);
+	
 	opener.fr.id.value = document.wfr.userid.value; // 새창 = 회원가입창
 	
 	// 회원가입창 제어

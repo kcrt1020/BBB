@@ -75,7 +75,7 @@
                             <li><a href="../member/loginForm.jsp">login</a></li>
                             <li><a href="../member/joinForm.jsp">sign up</a></li>
                             <%} else{%>
-							 <li><a><%=mb.getName() %>´Ô </a> </li>
+							 <li><a href="../member/memberInfo.jsp"><%=mb.getName() %>´Ô </a> </li>
 							 <li><a href="../member/logout.jsp">·Î±×¾Æ¿ô</a></li>
 								<%
 									} %>
@@ -196,7 +196,48 @@
 
    
 
-    <div class="copyright-area">
+ 
+    <!--   end of slider area-->
+    <section class="footer-area" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-sm-3 col-xs-12 col-lg-4">
+                    <div class="single-footer">
+                        <h2>»§»§ºê·¹µå</h2>
+                         <p>SINCE 2020</p>
+                        ENJOY THE BBANGBBANG BREAD
+                       
+                    </div>
+                </div>
+                <div class="col-md-10 col-sm-5 col-xs-12 col-lg-4">
+                
+                
+                
+                    <div class="single-footer">
+                        <h2>More links</h2>
+                        <ul class="list">
+                            <li><a href="../about/about.jsp">BBB</a></li>
+                            <li><a href="../about/notice.jsp">NOTICE</a></li>
+                            <li><a href="../products/products.jsp">PRODUCTS</a></li>
+                            <li><a href="../store/store.jsp">STORE</a></li>
+                            <li><a href="../contact/contact.jsp">CONTACT</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-12 col-lg-3">
+                   
+                    <div class="single-footer clearfix">
+                        <h2>Contact Us</h2>
+                        °í°´¼¾ÅÍ<br>000-000-0000<br>ÆòÀÏ 09:00-18:00 <br>(Á¡½É 12:00-13:00)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--end of footer area-->
+
+    <!--   start copyright text area-->
+     <div class="copyright-area">
         <div class="container">
             <div class="col-xs-12 col-sm-6 col-md-6 text-left">
                 <div class="footer-text">
@@ -205,27 +246,22 @@
             </div>
             <div class="col-xs-12  col-sm-6 col-md-6 text-right">
                 <div class="footer-text">
-                    <a href="#" class="fa fa-facebook"></a>
-                    <a href="#" class="fa fa-twitter"></a>
-                    <a href="#" class="fa fa-linkedin"></a>
-                    <a href="#" class="fa fa-google-plus"></a>
-                    <a href="#" class="fa fa-dribbble"></a>
+                    <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
+                    <a href="https://twitter.com/" class="fa fa-twitter"></a>
+                    <a href="https://www.linkedin.com/" class="fa fa-linkedin"></a>
                 </div>
             </div>
         </div>
     </div>
-
-
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
     <script src="../js/jquery.counterup.min.js"></script>
     <script src="../js/jquery.sticky.js"></script>
     <script src="../js/jquery.meanmenu.js"></script>
     <script src="../js/owl.carousel.min.js"></script>
     <script src="../js/slick.min.js"></script>
-    <script src="../js/jquery.nav.js"></script>
     <script src="../js/jquery.mb.YTPlayer.min.js"></script>
     <script src="../js/main.js"></script>
 </body>

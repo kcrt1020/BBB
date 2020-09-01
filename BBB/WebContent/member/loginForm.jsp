@@ -146,22 +146,59 @@
 	</script>
 
 
+ 
     <!--start footer area-->
-  
-    <div class="copyright-area">
+     <section class="footer-area" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-sm-3 col-xs-12 col-lg-4">
+                    <div class="single-footer">
+                        <h2>빵빵브레드</h2>
+                         <p>SINCE 2020</p>
+                        ENJOY THE BBANGBBANG BREAD
+                       
+                    </div>
+                </div>
+                <div class="col-md-10 col-sm-5 col-xs-12 col-lg-4">
+                
+                
+                
+                    <div class="single-footer">
+                        <h2>More links</h2>
+                        <ul class="list">
+                            <li><a href="../about/about.jsp">BBB</a></li>
+                            <li><a href="../about/notice.jsp">NOTICE</a></li>
+                            <li><a href="../products/products.jsp">PRODUCTS</a></li>
+                            <li><a href="../store/store.jsp">STORE</a></li>
+                            <li><a href="../contact/contact.jsp">CONTACT</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-12 col-lg-3">
+                   
+                    <div class="single-footer clearfix">
+                        <h2>Contact Us</h2>
+                        고객센터<br>000-000-0000<br>평일 09:00-18:00 <br>(점심 12:00-13:00)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--end of footer area-->
+
+    <!--   start copyright text area-->
+     <div class="copyright-area">
         <div class="container">
             <div class="col-xs-12 col-sm-6 col-md-6 text-left">
                 <div class="footer-text">
-                    <p>Copyright 2016, All Rights Reserved</p>
+                    <p>Copyright 2020, All Rights Reserved</p>
                 </div>
             </div>
             <div class="col-xs-12  col-sm-6 col-md-6 text-right">
                 <div class="footer-text">
-                    <a href="#" class="fa fa-facebook"></a>
-                    <a href="#" class="fa fa-twitter"></a>
-                    <a href="#" class="fa fa-linkedin"></a>
-                    <a href="#" class="fa fa-google-plus"></a>
-                    <a href="#" class="fa fa-dribbble"></a>
+                    <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
+                    <a href="https://twitter.com/" class="fa fa-twitter"></a>
+                    <a href="https://www.linkedin.com/" class="fa fa-linkedin"></a>
                 </div>
             </div>
         </div>

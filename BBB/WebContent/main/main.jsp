@@ -73,7 +73,6 @@
                                     <li><a href="../about/notice.jsp">NOTICE</a></li>
                                     <li><a href="../products/products.jsp">PRODUCTS</a></li>
                                     <li><a href="../store/store.jsp">STORE</a></li>
-                                    <li><a href="../delivery/delivery.jsp">DELIVERY</a></li>
                                     <li><a href="../contact/contact.jsp">CONTACT</a></li>
                                 </ul>
                             <!-- /.navbar-collapse -->
@@ -137,7 +136,7 @@
             <div class="row">
                 <div class="col-md-6 col-sm-6">
                     <div class="about_us_content">
-                        <h1>ABOUT US</h1><br><br>
+                        <h2>ABOUT US</h2><br><br>
                         
                         <h3>빵빵브레드</h3><br>
                         <p>빵빵브레드는 엄선한 재료로 매일매일 매장에서 직접 굽는 신선한 빵을 제공합니다.
@@ -159,133 +158,66 @@
         </div>
     </section>
     <!--   end of about us area-->
-
+<hr>
     <!--start count up area-->
-    <section class="couter_up_area" id="service">
-        <div class="table">
-            <div class="cell">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-2 col-sm-3 text-center">
-                            <div class="single_count">
-                                <h1 class="counter">126</h1>
-                                <h5>Satisfied clients</h5>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-3 col-md-offset-1 text-center">
-                            <div class="single_count">
-                                <h1 class="counter">34</h1>
-                                <h5>Branches</h5>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-3 col-md-offset-1 text-center">
-                            <div class="single_count">
-                                <h1 class="counter">120</h1>
-                                <h5>Active workers</h5>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-md-offset-1 text-center">
-                            <div class="single_count">
-                                <h1 class="counter">3546</h1>
-                                <h5>Product delivered s</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--    end of counter up area-->
-
-    <!--start calculate area-->
-    <section class="calculate_area" id="tracking">
+   <section class="contact-page-area">
         <div class="container">
-            <div class="row">
-                <div class="col-md-5 col-sm-6">
-                    <div class="calculate_title">
-                        <h2>Calculate your cost</h2>
-                        <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat,</p>
-                    </div>
-                    <div class="calculate_form">
-                        <form action="post">
-                            <div class="single_calculate">
-                                <input type="text">
-                                <label>height</label>
-                                <div class="calculate_option">
-                                    <select>
-                                        <option value="cm">cm</option>
-                                        <option value="ml">ml</option>
-                                        <option value="cm">cm</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="single_calculate">
-                                <input type="text">
-                                <label>width</label>
-                                <div class="calculate_option">
-                                    <select>
-                                        <option value="cm">cm</option>
-                                        <option value="ml">ml</option>
-                                        <option value="cm">cm</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="single_calculate">
-                                <input type="text">
-                                <label>length</label>
-                                <div class="calculate_option">
-                                    <select>
-                                        <option value="#">cm</option>
-                                        <option value="#">ml</option>
-                                        <option value="#">cm</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="single_calculate">
-                                <input type="text">
-                                <label>weight</label>
-                                <div class="calculate_option">
-                                    <select>
-                                        <option value="#">cm</option>
-                                        <option value="#">ml</option>
-                                        <option value="#">cm</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="single_calculate">
-                                <label>location</label>
-                                <div class="calculate_option selectpadding">
-                                    <select>
-                                        <option value="#">cm</option>
-                                        <option value="#">ml</option>
-                                        <option value="#">cm</option>
-                                    </select>
-                                </div>
-                                <div class="calculate_option padding-riht">
-                                    <select>
-                                        <option value="#" selected>form</option>
-                                        <option value="#">ml</option>
-                                        <option value="#">cm</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="calculat-button">
-                                <input type="submit" class="calulate" value="Calculate your cost now">
-                            </div>
-                            <div class="totla-cost">
-                                <h5>Total Cost: <span>$ 30</span></h5>
-                                <h5>Duration:: <span>3 days</span></h5>
-                            </div>
-                        </form>
-                    </div>
+          
+                <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                    <div class="about_us_content_title">
+                  <h2>Store</h2><br><br>
+                 
+            <div id="map" style="width:1000px;height:500px;"></div>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5426256a74ed299a68cf52992394bb00"></script>
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+    mapOption = { 
+        center: new kakao.maps.LatLng(35.1585847,129.0620088), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };
+
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+ 
+// 마커를 표시할 위치와 title 객체 배열입니다 
+var positions = [
+    {
+        title: '서면 1호점', 
+        latlng: new kakao.maps.LatLng(35.1585847,129.0620088)
+    }
+   
+];
+
+// 마커 이미지의 이미지 주소입니다
+var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+    
+for (var i = 0; i < positions.length; i ++) {
+    
+    // 마커 이미지의 이미지 크기 입니다
+    var imageSize = new kakao.maps.Size(24, 35); 
+    
+    // 마커 이미지를 생성합니다    
+    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+    
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({
+        map: map, // 마커를 표시할 지도
+        position: positions[i].latlng, // 마커를 표시할 위치
+        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+        image : markerImage // 마커 이미지 
+    });
+}
+</script>
+
+
+<br><p> <b>서면 1호점</b>    부산 부산진구 동천로 109 삼한골든게이트 7층 (부전동)  |  051-111-1111</p>
+               
                 </div>
             </div>
         </div>
-        <div class="calculat-image">
-            <img src="../img/men.png" alt="#">
-        </div>
     </section>
-    <!--    end of calculate area-->
+
+    <!--    end of counter up area-->
 
 
     <!--    start client say area-->

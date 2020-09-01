@@ -61,4 +61,3 @@ out.println("<script>alert('Send Mail Success!!');location.href='mailForm.html';
 %>
 
 
-출처: https://joont.tistory.com/52 [Toward the Developer]

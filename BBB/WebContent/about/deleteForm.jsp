@@ -118,7 +118,7 @@
  
 <fieldset>
 	<form action="deletePro.jsp?pageNum=<%=pageNum %>" method="post">
-	<input type="text" name="bno" value="<%=bno%>">
+	<input type="hidden" name="bno" value="<%=bno%>">
 	비밀번호를 입력해주세요.<br>
 	 <input type ="password" name = "pw" placeholder="passward">
 	<input type="submit" value="삭제하기">	

@@ -1,5 +1,4 @@
-
-<%@page import="com.bbb.board.BoardDAO"%>
+<%@page import="com.bbb.products.productsDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -25,15 +24,15 @@
 	// <useBean>
 	// <setProperty>
 	%>
-	<jsp:useBean id="bb" class="com.bbb.board.BoardBean"/>
-	<jsp:setProperty property="*" name="bb"/>
+	<jsp:useBean id="pb" class="com.bbb.products.productsBean"/>
+	<jsp:setProperty property="*" name="pb"/>
 	
 	<%
 	// DAO 객체 생성
-	BoardDAO bdao = new BoardDAO();
+	productsDAO pdao = new productsDAO();
 	// 정보 수정 메서드 updateBoard(bb)
 	// => 결과를 정수형 데이터로 리턴
-	int check = bdao.updateBoard(bb);
+	int check = pdao.updateBoard(pb);
 	// 1=> 정상처리, 0=>비밀번호 오류, -1=>해당 글이 없음
 	// => 처리 결과에 따라서 페이지 이동
 	

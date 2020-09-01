@@ -137,7 +137,7 @@
 	<tr>
 	
 	<tr>
-	<td><h1><%=pb.getSubject() %></h1></td>
+	<td><h2><%=pb.getSubject() %></h2></td>
 	</tr>
 	
 	<tr>
@@ -145,7 +145,7 @@
 	</tr>
 	
 	<tr>
-	<td><h2><%=pb.getContent() %></h2></td>
+	<td><p><%=pb.getContent() %></p></td>
 	</tr>
 	
 	<tr>

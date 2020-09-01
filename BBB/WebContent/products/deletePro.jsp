@@ -16,7 +16,7 @@
 	request.setCharacterEncoding("UTF-8");
 	
 	// 전달되는 데이터 처리 bno, passwd, pageNum
-	int bno = Integer.parseInt(request.getParameter("bno")) ;
+		int bno = Integer.parseInt(request.getParameter("bno")) ;
 	String pw = request.getParameter("pw");
 	String pageNum = request.getParameter("pageNum");
 	
@@ -25,12 +25,12 @@
 	// DAO 처리객체 -> deleteBoard(글번호, 비밀번호)
 	// => 정수형 타입 데이터로 리턴 -> 페이지 이동처리
 	productsDAO pdao = new productsDAO();
-	int check = pdao.deleteBoard(bno,pw);
+	int num = pdao.deleteBoard(bno,pw);
 	
 	
 	
 	
-	if(check==1){
+	if(num==1){
 	%>
 	<script type="text/javascript">
 	alert("글 삭제 완료!");
@@ -38,7 +38,7 @@
 	</script>
 	
 	<%
-	} else if (check==0){
+	} else if (num==0){
 		%>
 		<script type="text/javascript">
 		alert("비밀번호 오류!");

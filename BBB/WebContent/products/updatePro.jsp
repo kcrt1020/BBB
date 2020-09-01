@@ -17,6 +17,7 @@
 	
 	// get방식으로 전달되는 데이터 처리
 	String pageNum = request.getParameter("pageNum");
+	String pw = request.getParameter("pw");
 	
 	// 파라미터값 저장 (수정할 데이터)
 	// => 액션태그 사용 BoardBean 객체에 저장
@@ -40,7 +41,7 @@
 	%>
 	<script type="text/javascript">
 	alert("글 수정 완료!");
-	location.href="notice.jsp?pageNum=<%=pageNum%>";
+	location.href="products.jsp?pageNum=<%=pageNum%>";
 	</script>
 	
 	<%

@@ -14,7 +14,6 @@
 	int bno = Integer.parseInt(request.getParameter("bno"));
 	String pageNum = request.getParameter("pageNum");
 	String id= (String)session.getAttribute("id");
-	String name= (String)session.getAttribute("name");
 	
 	// BoardDAO 객체 생성
 	BoardDAO bdao = new BoardDAO();
@@ -25,6 +24,7 @@
 	// 글 정보를 가져오는 메서드 생성 (getBoard(bno))
 	//bdao.getBoard(bno);
 	BoardBean bb = bdao.getBoard(bno);
+	
 	MemberDAO mdao = new MemberDAO();
 
 	// id에 해당하는 회원정보 가져오기 getMember(id)

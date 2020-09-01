@@ -128,7 +128,7 @@
 <tr>
 <td>작성자</td>
 <td>
-	<input type="text" name="name" value="<%=mb.getName()%>" readonly="readonly">
+	<input type="text" name="name" value="<%=mb.getId()%>" readonly="readonly">
 </td>
 </tr>
 <tr>

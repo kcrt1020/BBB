@@ -13,7 +13,6 @@
 	
 	// 로그인 체크 (세션 id 값이 있는지 없는지 체크)
 	String id= (String)session.getAttribute("id");
-	String name= (String)session.getAttribute("name");
 	 // 세션 ID값을 사용해서 글쓴이 지정
 	
 	MemberDAO mdao = new MemberDAO();
@@ -101,24 +100,22 @@
  
  
 
- <section class="about_us_area" id="about">
+  <section class="join-page-area">
         <div class="container">
-            <div class="row page-title">
+            <div class="row">
                 <div class="col-md-6 col-sm-6 col-xs-6 text-left">
                     <div class="about_us_content_title">
                         <h2>Products</h2>
                         <h5>제품소개 </h5>
-                    </div>
+                  </div>
                 </div>
                 <div class="col-md-6 col-sm-6 col-xs-6 text-right">
-                  
-                    </div>
+                 
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 col-sm-6">
-                    <div class="about_us_content">
-                      <nav id="sub_menu">
+                    <div class="join-form">
 
 <!-- 게시판 -->
  

@@ -17,7 +17,8 @@
 <h1>board/fWritePro.jsp</h1>
 	<%
 	// 파일 업로드 => cos.jar (MultipartRequest 클래스)
-	
+	// 한글처리 
+	request.setCharacterEncoding("utf-8");
 	// 파일이 저장되는 위치 (D:/upfile)
 	String savePath="D:\\IT\\git\\BBB\\WebContent\\products\\upfile";
 	// 파일 업로드 최대 크기 5MB (20~250MB)

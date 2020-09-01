@@ -16,7 +16,6 @@
 
 	// 로그인 체크 (세션 id 값이 있는지 없는지 체크)
 	String id= (String)session.getAttribute("id");
-	String name= (String)session.getAttribute("name");
 
 	 int bno= Integer.parseInt(request.getParameter("bno"));
 	String pageNum = request.getParameter("pageNum");
@@ -25,12 +24,7 @@
 	// id에 해당하는 회원정보 가져오기 getMember(id)
 	MemberBean mb=mdao.getMember(id);
 	
-	 // 세션 ID값을 사용해서 글쓴이 지정
 
-	 if(id==null){
-		 response.sendRedirect("../about/products.jsp");	
-	 }
-	
 		
 	
 %>
@@ -130,7 +124,7 @@
 	<form action="deletePro.jsp?pageNum=<%=pageNum %>" method="post">
 	<input type="hidden" name="bno" value="<%=bno%>">
 	비밀번호를 입력해주세요.<br>
-	 <input type ="password" name = "passwd" placeholder="passward">
+	 <input type ="password" name = "pw" placeholder="passward">
 	<input type="submit" value="삭제하기">	
 	</form>	
 	</fieldset>

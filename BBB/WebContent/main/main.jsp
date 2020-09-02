@@ -112,7 +112,7 @@
                                     <p>빵빵브레드에서 갓구운 빵을 만나보세요!</p>
                                 </div>
                                 <div class="welcome_form">
-                                    <form action="#">
+                                    <form action="../products/products.jsp">
                                         <input class="form-control" type="text" placeholder="제품을 입력하세요.">
                                         <input class="submit" type="submit" value="검색">
                                     </form>

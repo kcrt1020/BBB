@@ -215,8 +215,7 @@
 	
 	
 <div id="table_search">
-<input type="text" name="search" class="input_box" >
-<input type="button" value="search" class="btn">
+
 <input type="button" value="글쓰기" class="btn" onclick="location.href='writeForm.jsp'">
 
 

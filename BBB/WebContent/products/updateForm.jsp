@@ -82,7 +82,6 @@
                                  <li><a href="../about/notice.jsp">NOTICE</a></li>
                                     <li class="current-menu-item"><a href="../products/products.jsp">PRODUCTS</a></li>
                                     <li><a href="../store/store.jsp">STORE</a></li>
-                                    <li><a href="../delivery/delivery.jsp">DELIVERY</a></li>
                                     <li><a href="../contact/contact.jsp">CONTACT</a></li>
                             </ul>
                         </nav>

@@ -1,10 +1,11 @@
+<%@page import="SMTPAuthenticator.SMTPAuthenticator"%>
 <%@page import="javax.mail.Transport"%>
 <%@page import="javax.mail.Message"%>
 <%@page import="javax.mail.Address"%>
 <%@page import="javax.mail.internet.InternetAddress"%>
 <%@page import="javax.mail.internet.MimeMessage"%>
 <%@page import="javax.mail.Session"%>
-<%@page import="mail.SMTPAuthenticatior"%>
+
 <%@page import="javax.mail.Authenticator"%>
 <%@page import="java.util.Properties"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -12,15 +13,15 @@
 <%
 request.setCharacterEncoding("utf-8");
  
-String from = request.getParameter("from");
-String to = request.getParameter("to");
+String from = request.getParameter("username");
+String to = request.getParameter("email_address");
 String subject = request.getParameter("subject");
-String content = request.getParameter("content");
+String content = request.getParameter("messages");
 // 입력값 받음
  
 Properties p = new Properties(); // 정보를 담을 객체
  
-p.put("mail.smtp.host","smtp.naver.com"); // 네이버 SMTP
+p.put("mail.smtp.host","smtp.gmail.com"); // 
  
 p.put("mail.smtp.port", "465");
 p.put("mail.smtp.starttls.enable", "true");
@@ -32,7 +33,7 @@ p.put("mail.smtp.socketFactory.fallback", "false");
 // SMTP 서버에 접속하기 위한 정보들
  
 try{
-    Authenticator auth = new SMTPAuthenticatior();
+    Authenticator auth = new SMTPAuthenticator();
     Session ses = Session.getInstance(p, auth);
      
     ses.setDebug(true);
@@ -51,12 +52,12 @@ try{
     Transport.send(msg); // 전송
 } catch(Exception e){
     e.printStackTrace();
-    out.println("<script>alert('Send Mail Failed..');history.back();</script>");
+    out.println("<script>alert('메일 발송 실패!');history.back();</script>");
     // 오류 발생시 뒤로 돌아가도록
     return;
 }
  
-out.println("<script>alert('Send Mail Success!!');location.href='mailForm.html';</script>");
+out.println("<script>alert('메일을 발송했습니다!');location.href='contact.jsp';</script>");
 // 성공 시
 %>
 

@@ -232,9 +232,7 @@
 	
 	
 	
-<div id="table_search">
-<input type="text" name="search" class="input_box" >
-<input type="button" value="search" class="btn">
+
 		<%
 	//if(id != null){
 		if(id!=null && id.equals("admin")){ // 앞에 있는 것부터 실행됨
